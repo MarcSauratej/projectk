@@ -1,10 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 
 body {
-    background-color: lightgray;
+    background-color: #9d5cf4;
     font-family: montserrat;
+	margin: 0;
+	padding: 0;
 }
 
+/*register*/
 .registerForm {
 	width: 400px;
 	margin: 50px auto;
@@ -72,4 +75,190 @@ body {
 
 .registerForm div input {
     width: 10px;
+}
+
+/*nav*/
+
+.nav{
+	display: flex;
+	justify-content: space-between;
+	width: auto;
+	height: auto;
+}
+.navm{
+	width: auto;
+	height: auto;
+	border-radius: 20px;
+	background-color: #1c2331;
+}
+
+.nav__list{
+	display: flex;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+
+.nav__list a{
+	display:block;
+	text-decoration: none;
+	color: white;
+	line-height:32px;
+	padding:0 20px;
+}
+
+
+.nav__list li{
+	position: relative;
+	float:  left;
+	margin: 0;
+	padding: 0;
+}
+
+.nav__list li:hover{
+	opacity: 1;
+	border-radius: 20px;
+}
+
+.nav__list ul{
+	display: none;
+	position:absolute;
+	top: 100%;
+	left: 0;
+	background-color: #fff;
+	padding: 0;
+	list-style: none;
+	border-radius: 20px;
+}
+
+.nav__list ul li{
+	float: none;
+	width: 200px;
+}
+
+.nav__list ul a{
+	line-height: 120%;
+	padding: 10px 15px;
+	color: black;
+}
+
+.nav__list ul ul{
+	position: absolute;
+	top: 0;
+	left: 50%;
+	background-color: #fff;
+}
+
+.nav__list li:hover > ul{
+	display: block;
+}
+
+.avatar{
+	display: flex;
+	width: 200px;
+	gap: 50px;
+	padding-top: 20px;
+}
+
+.avatar a{
+	text-decoration: none;
+	color: white;
+}
+
+.logo{
+	width:120px;
+	height: auto;
+	padding-top: 10px;
+}
+
+/*home*/
+
+.containerh{
+	width: 100%;
+	height: auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.containerh1{
+	width: 50%;
+	height: auto;
+	background-color: #27AE60;
+}
+
+.quizes{
+	width: 50%;
+	height: auto;
+	padding-top: 20px;	
+}
+
+.quiz1{
+	width: auto;
+	height: 50px;
+	display: flex;
+	justify-content: space-between;
+	border: solid black 2px;
+	background-color: aquamarine;
+}
+.quiz{
+	padding-bottom: 10px;
+}
+
+/*footer*/
+
+.footer{
+	background-color: #1c2331;
+}
+
+.titlef{
+	display: flex;
+	justify-content: center;
+	background-color: #6351ce;
+	color:white;
+
+}
+
+.contentf{
+	display: flex;
+	justify-content: space-around;
+	
+}
+
+.desc{
+	width: 50%;
+	color:white;
+	padding-left: 20px;
+}
+
+.link{
+	width: 50%;
+	color:white;
+	padding-left: 20px;
+}
+.link a{
+	text-decoration: none;
+	color:white;
+}
+
+.line{
+	width: 100px; 
+	background-color: #7c4dff; 
+	height: 2px;
+	display:inline-block ;
+}
+.copyf{
+	display: flex;
+	justify-content: center;
+	background-color: rgba(0, 0, 0, 0.2);
+	color:white;
+}
+
+.copyf a{
+	text-decoration: none;
+	color:white;
 }
