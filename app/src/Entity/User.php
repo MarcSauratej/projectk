@@ -40,6 +40,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string', length: 255)]
     private $username;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $avatar;
+
+    #[ORM\Column(type: 'boolean', nullable: true)]
+    private $deactivated;
+
+    #[ORM\Column(type: 'datetime_immutable', nullable: true)]
+    private $createdAt;
+
+    #[ORM\Column(type: 'datetime_immutable', nullable: true)]
+    private $updatedAt;
+
     public function __construct()
     {
         $this->userQuizzes = new ArrayCollection();
@@ -196,6 +208,54 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setUsername(string $username): self
     {
         $this->username = $username;
+
+        return $this;
+    }
+
+    public function getAvatar(): ?string
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar(?string $avatar): self
+    {
+        $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    public function isDeactivated(): ?bool
+    {
+        return $this->deactivated;
+    }
+
+    public function setDeactivated(?bool $deactivated): self
+    {
+        $this->deactivated = $deactivated;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(?\DateTimeImmutable $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeImmutable
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeImmutable $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

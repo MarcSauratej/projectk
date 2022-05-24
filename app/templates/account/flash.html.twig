@@ -1,6 +1,6 @@
 {% for label, messages in app.flashes(['success']) %}
     {% for message in messages %}
-        <div class="alert alert-success" role="alert">
+        <div class="alert successAlert" role="alert">
             {{ message | raw }}
         </div>
     {% endfor %}
@@ -8,7 +8,7 @@
 
 {% for label, messages in app.flashes(['info']) %}
     {% for message in messages %}
-        <div class="alert alert-info" role="alert">
+        <div class="alert infoAlert" role="alert">
             {{ message | raw }}
         </div>
     {% endfor %}
@@ -16,7 +16,7 @@
 
 {% for label, messages in app.flashes(['danger', 'error']) %}
     {% for message in messages %}
-        <div class="alert alert-danger" role="alert">
+        <div class="alert dangerAlert" role="alert">
             {{ message | raw }}
         </div>
     {% endfor %}
@@ -24,7 +24,7 @@
 
 {% for label, messages in app.flashes(['warning']) %}
     {% for message in messages %}
-        <div class="alert alert-warning" role="alert">
+        <div class="alert warningAlert" role="alert">
             {{ message | raw }}
         </div>
     {% endfor %}

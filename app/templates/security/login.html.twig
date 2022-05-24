@@ -1,46 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Project Kakarot - Inicio de Sesión{% endblock %}
 
 {% block body %}
-<form method="post">
+
+    <form method="post">
+        <div class="registerForm">
+            <fieldset>
+                <h2 class="fs-title">Inicio de Sesión</h2>
+                <input placeholder="Email" type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+                <input placeholder="Contraseña" type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"><br>
+                <button class="btn btnPrimary" type="submit">INICIAR SESIÓN</button><br><br>
+                <a href="{{ path('app_forgot_password_request') }}" class="forgot-password">¿Has olvidado la contraseña?</a><br><br>
+                <span>¿No tienes cuenta? <a href="{{path('app_register')}}">¡Regístrate!</a></span>
+            </fieldset>
+        </div>
+    </form>
+
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
-
-    <div class="col-md-12 p-0">
-        {% embed 'account/flash.html.twig' %}{% endembed %}
-    </div>
-
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
-
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
-
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div>
-    #}
-
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
 {% endblock %}

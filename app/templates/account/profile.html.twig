@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Project Kakarot - Perfil{% endblock %}
+
+{% block body %}
+
+    <h1>Mi Perfil</h1>
+
+    <div class="settingsForm">
+		<div class="emailSettings">
+            <h3>Datos Personales</h3>
+            <label for="username">Nombre de Usuario: </label>
+			<input name="username" type="text" class="inputSettings" value="{{ app.user.username}}" disabled>
+            <label for="email">Email: </label>
+			<input name="email" type="text" class="inputSettings" value="{{ app.user.email}}" disabled>
+		</div>
+	
+        {{ form_start(settingsForm) }}
+            <h3>Editar Perfil</h3>
+            {{ form_row(settingsForm.username) }}
+            <div class="avatar-wrapper" data-tippy-placement="bottom" title="Cambiar Avatar">
+
+				{% if user.avatar is not null %}
+				    <img class="profile-pic" src="'/avatars/' ~ user.avatar" alt="Avatar de Usuario" />
+				{% else %}
+				    <img class="profile-pic" src="/img/default-avatar.svg" alt="Avatar de Usuario" />
+				{% endif %}
+
+				<div class="upload-button"></div>
+			    {{ form_widget(settingsForm.avatar, {'attr':{'class':'file-upload'}})}}
+			</div>
+            <button type="submit" class="btn btnSecondary">EDITAR</button>
+        {{ form_end(settingsForm) }}
+    </div>
+
+    <div class="emailVerification">
+        {% if user.isVerified == false %}
+            <div>
+                <h3>Reenviar Verificación de Email</h3>
+                <button onclick=window.location.href="{{ path('app_account_emailVerify')}}" class="btn btnPrimary" title="Reenviar Verificación de Email">REENVIAR</button>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="security">
+        <h3>Seguridad</h3>
+        <a href="{{ path('app_forgot_password_request') }}" class="btn btnSecondary" type="button">CAMBIAR CONTRASEÑA</a>
+        <a id="buttonDeleteAccount" class="btn btnDanger" href="#deleteAccount" type="button">ELIMINAR CUENTA</a>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content" id="#deleteAccount">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Confirmación de eliminación de cuenta</h2>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro que deseas eliminar tu cuenta?</p>
+                <p>Perderás todos tus datos.</p>
+            </div>
+            <a class="btn btnDanger" href="{{ path('app_account_delete')}}">CONFIRMAR</a>
+        </div>
+    </div>
+    
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+
+<script>
+
+    var modal = document.getElementById("myModal");
+    var btn = document.getElementById("buttonDeleteAccount");
+    var span = document.getElementsByClassName("close")[0];
+
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+    }
+
+</script>
+
+{% endblock %}
