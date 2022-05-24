@@ -10,9 +10,57 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}
-        
-        {% endblock %}
+    
+    {% block body %}{% endblock %}
+
+    {% block footer %}
+        <div class="container my-5">
+
+        <footer class="footer">
+            <section class="titlef">
+            <div class="me-5">
+                <span>Get connected with us on social networks:</span>
+            </div>
+            </section>
+            <section class="containerf">
+            <div>
+                <div class="contentf ">
+                <div class="desc ">
+                    <h3>Company name</h3>
+                    <hr class="line"/>
+                    <p>
+                    Here you can use rows and columns to organize your footer
+                    content. Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit.
+                    </p>
+                </div>
+                <div class="link">
+                    <h3>Useful links</h3>
+                    <hr class="line"/>
+                    <p>
+                    <a href="#">Your Account</a>
+                    </p>
+                    <p>
+                    <a href="#">Become an Affiliate</a>
+                    </p>
+                    <p>
+                    <a href="#">Shipping Rates</a>
+                    </p>
+                    <p>
+                    <a href="#">Help</a>
+                    </p>
+                </div>
+                </div>
+            </div>
+            </section>
+            <div class="copyf">
+            © 2020 Copyright:
+            <a href="#">MDBootstrap.com</a>
+            </div>
+        </footer>
+
+        </div>
+  {% endblock %}
         
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
