@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Password Reset Email Sent{% endblock %}
+{% block title %}Project Kakarot - Cambio de Contraseña{% endblock %}
 
 {% block body %}
     <p>
-        If an account matching your email exists, then an email was just sent that contains a link that you can use to reset your password.
-        This link will expire in {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+        Se enviará un correo al email introducido que contiene un link para que puedas cambiar tu contraseña.
+        Este link expirará en {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
     </p>
-    <p>If you don't receive an email please check your spam folder or <a href="{{ path('app_forgot_password_request') }}">try again</a>.</p>
+    <p>Si no recibes un email por favor revisa tu carpeta de spam o <a href="{{ path('app_forgot_password_request') }}">prueba otra vez</a>.</p>
+    
 {% endblock %}
