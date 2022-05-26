@@ -63,6 +63,7 @@ class AccountController extends AbstractController {
                     // ... handle exception if something happens during file upload
                 }
             }
+
             $this->entityManager = $doctrine->getManager();
             $this->entityManager->persist($user);
             $this->entityManager->flush();
@@ -102,13 +103,13 @@ class AccountController extends AbstractController {
     }
 
     #[Route('/profile/delete', name: 'app_account_delete')]
-    public function deleteAccount(Request $request): Response {
+    public function deleteAccount(Request $request, ManagerRegistry $doctrine, MailerInterface $mailer, TokenStorageInterface $tokenStorage): Response {
         $user = $this->getUser();
-
+/*
         if (!$user->isVerified()) {
             return $this->redirectToRoute('app_account');
         }
-
+*/
         $user->setDeactivated(true);
         $this->entityManager = $doctrine->getManager();
         $this->entityManager->persist($user);
@@ -119,7 +120,7 @@ class AccountController extends AbstractController {
             ->from(new Address('mailer@projectkakarot.com', 'Project Kakarot'))
             ->to($user->getEmail())
             ->subject('Eliminación de Cuenta')
-            ->htmlTemplate('email/deleteAccount.html.twig');
+            ->htmlTemplate('emails/deleteAccount_email.html.twig');
 
         try {
             $mailer->send($email);

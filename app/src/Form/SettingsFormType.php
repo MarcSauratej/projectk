@@ -17,14 +17,19 @@ class SettingsFormType extends AbstractType {
     {
         $builder
         ->add('avatar', FileType::class, [
-            'label' => 'Avatar (Archivo de Imagen)',
+            'label' => 'Avatar',
             'mapped' => false,
             'required' => false,
+            'attr' => [
+                'placeholder' => 'Selecciona una imagen (JPG, PNG, WEBP)'
+            ],
             'constraints' => [
                 new File([
                     'maxSize' => '2048k',
                     'mimeTypes' => [
-                        'image/*'
+                        'image/jpeg',
+                        'image/png',
+                        'image/webp',
                     ],
                     'mimeTypesMessage' => 'Por favor sube tu avatar',
                 ])
