@@ -109,7 +109,7 @@ body {
     border-color: #f5c6cb;
 }
 
-.btn {
+.Btn {
     border: 1px solid transparent;
 	border-radius: 0.25rem;
 	padding: 0.375rem 0.75rem;
@@ -173,7 +173,7 @@ body {
   
 .close:hover,
 .close:focus {
-	color: white;
+	opacity: 0.5;
 	text-decoration: none;
 	cursor: pointer;
 }

@@ -12,7 +12,7 @@
                     <input placeholder="Contraseña" type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
                     <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"><br>
                 </form>
-                <button form="login-form" class="btn btnPrimary" type="submit">INICIAR SESIÓN</button><br><br>
+                <button form="login-form" class="Btn btnPrimary" type="submit">INICIAR SESIÓN</button><br><br>
                 <a href="{{ path('app_forgot_password_request') }}" class="forgot-password">¿Has olvidado la contraseña?</a><br><br>
                 <span>¿No tienes cuenta? <a href="{{path('app_register')}}">¡Regístrate!</a></span>
             </fieldset>

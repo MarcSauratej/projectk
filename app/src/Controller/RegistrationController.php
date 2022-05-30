@@ -56,7 +56,7 @@ class RegistrationController extends AbstractController
                     ->from(new Address('mailer@projectkakarot.com', 'Project Kakarot'))
                     ->to($user->getEmail())
                     ->subject('Please Confirm your Email')
-                    ->htmlTemplate('emails/confirmation_email.html.twig')
+                    ->htmlTemplate('registration/confirmation_email.html.twig')
             );
 
             $this->addFlash('success', ('¡Cuenta Creada! Verifica tu email y haz login.'));
