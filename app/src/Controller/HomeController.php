@@ -40,10 +40,22 @@ class HomeController extends AbstractController {
         return $this->render('home/specials.html.twig');
     }
 
+    #[Route('/sagas', name: 'app_sagas')]
+    public function sagas(Request $request): Response {
+
+        return $this->render('home/sagas.html.twig');
+    }
+
     #[Route('/battles', name: 'app_battles')]
     public function battles(Request $request): Response {
 
         return $this->render('home/battles.html.twig');
+    }
+
+    #[Route('/razas', name: 'app_razas')]
+    public function razas(Request $request): Response {
+
+        return $this->render('home/razas.html.twig');
     }
 
     #[Route('/characters', name: 'app_characters')]
