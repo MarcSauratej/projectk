@@ -93,7 +93,7 @@ class AccountController extends AbstractController {
 
         $emailVerifier->sendEmailConfirmation('app_verify_email', $user,
             (new TemplatedEmail())
-                ->from(new Address('mailer@projectkakarot.com', 'Project Kakarot'))
+                ->from(new Address('mailer@kakarot.squaremx.com', 'Project Kakarot'))
                 ->to($user->getEmail())
                 ->subject('Please Confirm your Email')
                 ->htmlTemplate('registration/confirmation_email.html.twig')
@@ -105,11 +105,7 @@ class AccountController extends AbstractController {
     #[Route('/profile/delete', name: 'app_account_delete')]
     public function deleteAccount(Request $request, ManagerRegistry $doctrine, MailerInterface $mailer, TokenStorageInterface $tokenStorage): Response {
         $user = $this->getUser();
-/*
-        if (!$user->isVerified()) {
-            return $this->redirectToRoute('app_account');
-        }
-*/
+
         $user->setDeactivated(true);
         $this->entityManager = $doctrine->getManager();
         $this->entityManager->persist($user);
@@ -117,7 +113,7 @@ class AccountController extends AbstractController {
 
         $email = null;
         $email = (new TemplatedEmail())
-            ->from(new Address('mailer@projectkakarot.com', 'Project Kakarot'))
+            ->from(new Address('mailer@kakarot.squaremx.com', 'Project Kakarot'))
             ->to($user->getEmail())
             ->subject('Eliminación de Cuenta')
             ->htmlTemplate('emails/deleteAccount_email.html.twig');
