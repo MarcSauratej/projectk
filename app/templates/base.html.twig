@@ -47,6 +47,8 @@
     {% block javascripts %}
         {{ encore_entry_script_tags('app') }}
         <script>
+        //slider imagenes
+
      let slideIndex = 1;
 
 
@@ -74,6 +76,37 @@
         }
         slides[slideIndex-1].style.display = "block";  
         dots[slideIndex-1].className += " active";
+        }
+
+
+        //Slider Caja
+
+        let slideIndexCaja = 1;
+
+        showSlidesCaja(slideIndexCaja);
+
+        function plusSlidesCaja(n) {
+            showSlidesCaja(slideIndexCaja += n);
+        }
+
+        function showSlidesCaja(n) {
+            let i;
+            let slides = document.getElementsByClassName("caja");
+
+            if (n > slides.length) {
+                slideIndexCaja = 1
+            }   
+
+            if (n < 1) {
+                slideIndexCaja = slides.length
+            }
+
+            for (i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("mcaja");
+                
+            }
+
+            slides[slideIndexCaja-1].classList.add("mcaja");
         }
      </script>
     {% endblock %}
