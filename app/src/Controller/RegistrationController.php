@@ -51,7 +51,7 @@ class RegistrationController extends AbstractController
             $user->setCreatedAt($date);
             $user->setUpdatedAt($date);
             $user->setDeactivated(false);
-
+            
             $this->entityManager->persist($user);
             $this->entityManager->flush();
 

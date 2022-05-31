@@ -1,7 +1,11 @@
-{% extends '@EasyAdmin/layout.html.twig' %}
+{% extends '@!EasyAdmin/layout.html.twig' %}
 
-{% block title %}Project Kakarot - Panel de Adminitración{% endblock %}
+{% block content_title %}Project Kakarot - Panel de Adminitración{% endblock %}
 
-{% block stylesheets %}{% endblock %}
+{% block stylesheets %}<style>body{background-color:#222!important;}</style>{% endblock %}
 
-{% block main %}{% endblock %}
+{% block main %}
+    <h4>Bienvenido Administrador {{ app.user.username}} al Panel de Administración de Project Kakarot, sé libre de añadir, eliminar y editar lo que quieras.</h4>
+    <br><br>
+    <button class="btn btnPrimary" onclick="window.location.href='{{ path('app_home') }}'">VOLVER AL HOME</button>
+{% endblock %}

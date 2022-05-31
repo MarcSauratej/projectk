@@ -1,12 +1,15 @@
 {% extends 'base.html.twig' %}
+
 {% block stylesheets %}
     {{ parent() }}
 {% endblock %}
 
 {% block body %}
+
 <div>
-{% embed 'home/components/nav.html.twig' %}{% endembed %}
+    {% embed 'home/components/nav.html.twig' %}{% endembed %}
 </div>
+
 {% block content %}{% endblock %}
 
 {% endblock %}

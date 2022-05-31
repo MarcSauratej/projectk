@@ -2,12 +2,12 @@
 
 {% block title %}Project Kakarot - Cambio de Contraseña{% endblock %}
 
-{% block body %}
+{% block content %}
     {% for flash_error in app.flashes('reset_password_error') %}
         <div class="alert btnDanger" role="alert">{{ flash_error }}</div>
     {% endfor %}
 
-    <div class="registerForm">
+    <div style="margin-bottom:275px;" class="registerForm">
         {{ form_start(requestForm) }}
         <fieldset>
             <h2 class="fs-title">Cambia tu Contraseña</h2>

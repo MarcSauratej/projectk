@@ -2,12 +2,14 @@
 
 {% block title %} Project Kakarot - Registro{% endblock %}
 
-{% block body %}
-    {% for flash_error in app.flashes('verify_email_error') %}
-        <div class="alert dangerAlert" role="alert">{{ flash_error }}</div>
+{% block content %}
+    {% for flash_message in app.session.flashbag.get('danger') %}
+        <div class="alert dangerAlert" role="alert">{{ flash_message }}</div>
     {% endfor %}
 
-    <h1>Registro</h1>
+    {% for flash_message in app.session.flashbag.get('success') %}
+        <div class="alert dangerSuccess" role="alert">{{ flash_message }}</div>
+    {% endfor %}
 
     <div class="registerForm">
         {{ form_start(registrationForm) }}
@@ -18,7 +20,7 @@
             {{ form_widget(registrationForm.plainPassword )}}
             {{ form_row(registrationForm.agreeTerms) }}
 
-            <button type="submit" class="btnRegister">REGISTRARSE</button>
+            <button type="submit" class="Btn btnPrimary">REGISTRARSE</button>
         </fieldset>
         {{ form_end(registrationForm) }}
     </div>

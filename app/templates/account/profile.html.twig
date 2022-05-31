@@ -4,9 +4,17 @@
 
 {% block content %}
 
-<div class="caja">
-    <div class="settingsForm">
-        <div style="padding-left: 20px;" class="container2">
+{% for flash_message in app.session.flashbag.get('danger') %}
+    <div class="alert dangerAlert" role="alert">{{ flash_message }}</div>
+{% endfor %}
+
+{% for flash_message in app.session.flashbag.get('success') %}
+    <div class="alert successAlert" role="alert">{{ flash_message }}</div>
+{% endfor %}
+
+<div class="caja" style="gap:50px;padding:20px;width:fit-content;margin:auto;margin-top:50px;height:500px;">
+    <div style="height:305px;" class="settingsForm">
+        <div style="padding-left:20px;border-bottom-left-radius:unset;border-bottom-right-radius:unset;" class="container2">
             <div class="emailSettings">
                 <h3>Datos Personales</h3>
                 <p>Nombre de Usuario: {{ app.user.username}}</p>
@@ -15,7 +23,7 @@
             </div>
         </div>
 
-        <div style="padding-left:20px;padding-right:20px;padding-bottom:20px;" class="container2">
+        <div style="padding-left:20px;padding-right:20px;padding-bottom:20px;border-top-left-radius:unset;border-top-right-radius:unset;height:inherit;" class="container2">
             {{ form_start(settingsForm) }}
                 <h3>Editar Perfil</h3>
                 {{ form_row(settingsForm.username) }}
@@ -23,7 +31,7 @@
                     {% if user.avatar is not null %}
                         <img class="profile-pic" src="/img/avatars/{{ user.avatar }}" alt="" />
                     {% else %}
-                        <img class="profile-pic svgAvatar" src="/img/default-avatar.svg" alt="" />
+                        <img class="profile-pic" src="/img/default-avatar.svg" alt="" />
                     {% endif %}
                     <div class="upload-button"></div>
                     {{ form_widget(settingsForm.avatar, {'attr':{'class':'file-upload'}})}}
@@ -33,21 +41,32 @@
         </div>
     </div>
 
-    <div class="emailVerification">
-        {% if user.isVerified == false %}
-            <div>
-                <h3>Reenviar Verificación de Email</h3>
-                <button onclick=window.location.href="{{ path('app_account_emailVerify')}}" class="Btn btnPrimary" title="Reenviar Verificación de Email">REENVIAR</button>
-            </div>
-        {% endif %}
+<div class="gridContainer">
+    <div style="padding-left:20px;padding-right:20px;height:100px;padding-bottom:20px;" id="gridInContainer1" class="container2">
+        <div class="emailVerification">
+            {% if user.isVerified == false %}
+                <div>
+                    <h3>Reenviar Verificación de Email</h3>
+                    <button onclick=window.location.href="{{ path('app_account_emailVerify')}}" class="Btn btnPrimary" title="Reenviar Verificación de Email">REENVIAR</button>
+                </div>
+            {% endif %}
+        </div>
     </div>
 
-    <div class="security">
-        <h3>Seguridad</h3>
-        <a href="{{ path('app_forgot_password_request') }}" class="Btn btnSecondary" type="button">CAMBIAR CONTRASEÑA</a>
-        <a id="buttonDeleteAccount" class="Btn btnDanger" href="#deleteAccount" type="button">ELIMINAR CUENTA</a>
+    <div style="padding-left:20px;padding-right:20px;height:100px;padding-bottom:20px;" id="gridInContainer2" class="container2">
+        <div class="security">
+            <h3>Seguridad</h3>
+            <a href="{{ path('app_forgot_password_request') }}" class="Btn btnSecondary" type="button">CAMBIAR CONTRASEÑA</a>
+            <a id="buttonDeleteAccount" class="Btn btnDanger" href="#deleteAccount" type="button">ELIMINAR CUENTA</a>
+        </div>
     </div>
 
+    <div style="padding-left:20px;padding-right:20px;padding-bottom:20px;" class="container2" id="gridInContainer3">
+        <div class="rewards">
+            <h3>Mis Recompensas</h3>
+        </div>
+    </div>
+</div>
     <div id="myModal" class="modal">
         <div class="modal-content" id="#deleteAccount">
             <div class="modal-header">

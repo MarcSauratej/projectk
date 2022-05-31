@@ -20,6 +20,7 @@ class SettingsFormType extends AbstractType {
             'label' => 'Avatar',
             'mapped' => false,
             'required' => false,
+            'multiple' => false,
             'attr' => [
                 'placeholder' => 'Selecciona una imagen (JPG, PNG, WEBP)'
             ],
@@ -38,9 +39,11 @@ class SettingsFormType extends AbstractType {
         ->add('username',
         TextType::class,
         [
-            'label' => 'Nombre de Usuario',
+            'label' => 'Nombre de Usuario: ',
             'attr'  => [
-                'placeholder' => 'Nombre de Usuario'
+                'placeholder' => 'Nombre de Usuario',
+                'minLength' => 3,
+                'maxLength' => 40
             ],
             'constraints' => [new Length(['min' => 3, 'max' => 40])],
 
