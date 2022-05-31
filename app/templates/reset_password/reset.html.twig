@@ -2,11 +2,18 @@
 
 {% block title %}Project Kakarot - Cambio de Contraseña{% endblock %}
 
-{% block body %}
-    <h1>Cambia tu Contraseña</h1>
+{% block content %}
+    <div style="margin-bottom:275px;" class="registerForm">
+        {{ form_start(resetForm) }}
+        <fieldset>
+            <h2 class="fs-title">Cambia tu Contraseña</h2>
+            {{ form_row(resetForm.plainPassword) }}
+            <div>
+                <small>Introduce tu contraseña.</small>
+            </div>
 
-    {{ form_start(resetForm) }}
-        {{ form_row(resetForm.plainPassword) }}
-        <button class="Btn btnPrimary">CAMBIAR CONTRASEÑA</button>
-    {{ form_end(resetForm) }}
+            <button class="Btn btnPrimary">Enviar cambio de contraseña</button>
+        </fieldset>
+        {{ form_end(resetForm) }}
+    </div>
 {% endblock %}

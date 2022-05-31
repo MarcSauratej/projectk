@@ -5,7 +5,8 @@
         <title>{% block title %}Project Kakarot{% endblock %}</title>
         <link rel="icon" href="/img/pklogo.svg" sizes="any" type="image/svg+xml">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -19,7 +20,7 @@
 
         <footer class="footer">
             <div class="titlef">
-                <span></span>
+                <span><button id="scrollButton" class="animate__animated"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M374.6 246.6C368.4 252.9 360.2 256 352 256s-16.38-3.125-22.62-9.375L224 141.3V448c0 17.69-14.33 31.1-31.1 31.1S160 465.7 160 448V141.3L54.63 246.6c-12.5 12.5-32.75 12.5-45.25 0s-12.5-32.75 0-45.25l160-160c12.5-12.5 32.75-12.5 45.25 0l160 160C387.1 213.9 387.1 234.1 374.6 246.6z"/></svg></button></span>
             </div>
             <div class="containerf">
                 <div class="contentf">
@@ -44,70 +45,32 @@
   {% endblock %}
     </body>
 
-    {% block javascripts %}
-        {{ encore_entry_script_tags('app') }}
-        <script>
-        //slider imagenes
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
 
-     let slideIndex = 1;
+<script>
 
+    var btn = document.getElementById("scrollButton");
 
-        showSlides(slideIndex);
+    btn.addEventListener("click", () => {
+        var count = 0;
 
-        function plusSlides(n) {
-        showSlides(slideIndex += n);
-        }
+        var x = setInterval(function() {
+            'use strict';
 
-        function currentSlide(n) {
-        showSlides(slideIndex = n);
-        }
+            window.scrollTo(0,scrollY-count);
 
-        function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("mySlides");
-        let dots = document.getElementsByClassName("dot");
-        if (n > slides.length) {slideIndex = 1}    
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";  
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex-1].style.display = "block";  
-        dots[slideIndex-1].className += " active";
-        }
+            count++
 
-
-        //Slider Caja
-
-        let slideIndexCaja = 1;
-
-        showSlidesCaja(slideIndexCaja);
-
-        function plusSlidesCaja(n) {
-            showSlidesCaja(slideIndexCaja += n);
-        }
-
-        function showSlidesCaja(n) {
-            let i;
-            let slides = document.getElementsByClassName("caja");
-
-            if (n > slides.length) {
-                slideIndexCaja = 1
-            }   
-
-            if (n < 1) {
-                slideIndexCaja = slides.length
+            if (scrollY == 0) {
+                clearInterval(x)
             }
 
-            for (i = 0; i < slides.length; i++) {
-                slides[i].classList.remove("mcaja");
-                
-            }
+        }, 20);
 
-            slides[slideIndexCaja-1].classList.add("mcaja");
-        }
-     </script>
-    {% endblock %}
+    });
+
+</script>
+
+{% endblock %}
 </html>

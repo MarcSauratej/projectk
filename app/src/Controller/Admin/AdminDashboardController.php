@@ -5,7 +5,6 @@ namespace App\Controller\Admin;
 use App\Entity\User;
 use App\Entity\Quiz;
 
-
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -18,7 +17,6 @@ use Doctrine\Persistence\ManagerRegistry;
 
 class AdminDashboardController extends AbstractDashboardController
 {
-    private $chartBuilder;
 
     public function __construct(ManagerRegistry $doctrine)
     {
@@ -34,7 +32,6 @@ class AdminDashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Project Kakarot - Panel de Administración')
             ->setFaviconPath('/img/pklogo.svg')
             ->renderContentMaximized()
             ->renderSidebarMinimized();

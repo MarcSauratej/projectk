@@ -63,23 +63,25 @@ class AccountController extends AbstractController {
                     );
                     $user->setAvatar($newFilename);
                 } catch (FileException $e) {
-                    // ... handle exception if something happens during file upload
+                    $this->addFlash('danger', 'No se ha podido actualizar tu perfil, por favor revisa los datos introducidos.');
                 }
             }
 
             $this->entityManager = $doctrine->getManager();
             $this->entityManager->persist($user);
             $this->entityManager->flush();
-            $this->addFlash('success', 'Tu cuenta ha sido actualizada');
+            $this->addFlash('success', 'Tu cuenta ha sido actualizada.');
         
         }
 
         $user = $this->getUser();
 
+        /*
         if (!$user->isVerified()) {
-            $this->addFlash('error', 'Por favor verifica tu email');
+            $this->addFlash('error', 'Por favor verifica tu email.');
         }
-
+        */
+        
         return $this->render('account/profile.html.twig', [
             'settingsForm' => $form->createView(),
             'user' => $user

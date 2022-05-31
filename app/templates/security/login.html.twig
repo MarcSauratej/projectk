@@ -2,7 +2,11 @@
 
 {% block title %}Project Kakarot - Inicio de Sesión{% endblock %}
 
-{% block body %}
+{% block content %}
+
+{% if error %}
+    <div class="alert dangerAlert">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
 
         <div class="registerForm">
             <fieldset>
@@ -13,13 +17,9 @@
                     <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"><br>
                 </form>
                 <button form="login-form" class="Btn btnPrimary" type="submit">INICIAR SESIÓN</button><br><br>
-                <a href="{{ path('app_forgot_password_request') }}" class="forgot-password">¿Has olvidado la contraseña?</a><br><br>
-                <span>¿No tienes cuenta? <a href="{{path('app_register')}}">¡Regístrate!</a></span>
+                <a href="{{ path('app_forgot_password_request') }}" style="text-decoration:none;color:#435fdb;">¿Has olvidado la contraseña?</a><br><br>
+                <span>¿No tienes cuenta? <a style="text-decoration:none;color:#435fdb;" href="{{path('app_register')}}">¡Regístrate!</a></span>
             </fieldset>
         </div>
-
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
 
 {% endblock %}

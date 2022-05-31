@@ -1,4 +1,4 @@
-<div class="nav">
+<div class="nav animate__animated animate__fadeInDown">
     <div class="logo">
         <img onclick="window.location.href='{{ path('app_home') }}'" src="/img/pklogo.svg">
     </div>
@@ -45,7 +45,7 @@
         {% endif %}
 
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-            <a class="Btn btnSecondary" href="{{ path('app_logout') }}">Desconectarse</a>
+            <a class="Btn btnSecondary" href="{{ path('app_logout') }}">CERRAR SESIÓN</a>
         {% endif %}
     </div>
 </div>
