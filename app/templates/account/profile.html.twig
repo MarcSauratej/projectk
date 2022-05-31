@@ -4,31 +4,33 @@
 
 {% block content %}
 
-    <h1>Mi Perfil</h1>
-
+<div class="caja">
     <div class="settingsForm">
-		<div class="emailSettings">
-            <h3>Datos Personales</h3>
-            <label for="username">Nombre de Usuario: </label>
-			<input name="username" type="text" class="inputSettings" value="{{ app.user.username}}" disabled>
-            <label for="email">Email: </label>
-			<input name="email" type="text" class="inputSettings" value="{{ app.user.email}}" disabled>
-		</div>
-	
-        {{ form_start(settingsForm) }}
-            <h3>Editar Perfil</h3>
-            {{ form_row(settingsForm.username) }}
-            <div class="avatar-wrapper" data-tippy-placement="bottom" title="Cambiar Avatar">
-				{% if user.avatar is not null %}
-				    <img class="profile-pic" src="/img/avatars/{{ user.avatar }}" alt="" />
-				{% else %}
-					<img class="profile-pic" src="/img/default-avatar.svg" alt="" />
-				{% endif %}
-                <div class="upload-button"></div>
-				{{ form_widget(settingsForm.avatar, {'attr':{'class':'file-upload'}})}}
-			</div>
-        <button type="submit" class="Btn btnSecondary">GUARDAR CAMBIOS</button>
-        {{ form_end(settingsForm) }}
+        <div style="padding-left: 20px;" class="container2">
+            <div class="emailSettings">
+                <h3>Datos Personales</h3>
+                <p>Nombre de Usuario: {{ app.user.username}}</p>
+                <p>Email: {{ app.user.email}}</p>
+                <p>Registrado el día: {{ app.user.createdAt|date('d-m-Y')  }}</p>
+            </div>
+        </div>
+
+        <div style="padding-left:20px;padding-right:20px;padding-bottom:20px;" class="container2">
+            {{ form_start(settingsForm) }}
+                <h3>Editar Perfil</h3>
+                {{ form_row(settingsForm.username) }}
+                <div style="margin:auto;padding-bottom:20px;padding-top:20px;" class="avatar-wrapper" data-tippy-placement="bottom" title="Cambiar Avatar">
+                    {% if user.avatar is not null %}
+                        <img class="profile-pic" src="/img/avatars/{{ user.avatar }}" alt="" />
+                    {% else %}
+                        <img class="profile-pic svgAvatar" src="/img/default-avatar.svg" alt="" />
+                    {% endif %}
+                    <div class="upload-button"></div>
+                    {{ form_widget(settingsForm.avatar, {'attr':{'class':'file-upload'}})}}
+                </div>
+            <button style="display:flex;margin:auto;" type="submit" class="Btn btnSecondary">GUARDAR CAMBIOS</button>
+            {{ form_end(settingsForm) }}
+        </div>
     </div>
 
     <div class="emailVerification">
@@ -59,6 +61,7 @@
             <a class="Btn btnDanger" href="{{ path('app_account_delete')}}">CONFIRMAR</a>
         </div>
     </div>
+</div>
     
 {% endblock %}
 

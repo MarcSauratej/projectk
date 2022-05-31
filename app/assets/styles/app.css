@@ -118,14 +118,14 @@ body {
 	cursor: pointer;
 }
 
-.btn:hover {
+.Btn:hover {
 	transition: 0.4s;
 	filter: brightness(90%); 
 }
 
 .btnDanger {
 	color: #fff;
-    background-color: #dc3545;
+    background-color: #dc3545!important;
 }
 
 .btnPrimary {
@@ -135,7 +135,7 @@ body {
 
 .btnSecondary {
 	color: #fff;
-	background: #435fdb;
+	background: #435fdb!important;
 }
 
 /*Delete Account Modal*/
@@ -328,6 +328,7 @@ body {
 	line-height: 120%;
 	padding: 10px 15px;
 	color: white;
+	transition: 0.4s;
 }
 
 .nav__list ul ul{
@@ -499,7 +500,6 @@ img {vertical-align: middle;}
 
 .caja{
 	display: flex;
-	width: 90%;
 	height: auto;
 	background-color: #161a3a;
 	padding: 10px;
@@ -507,6 +507,7 @@ img {vertical-align: middle;}
 	border: solid #fe7900 2px;
 	border-radius: 15px;
 	box-shadow: rgba(0, 0, 0, 0.35) 15px 10px 21px;
+	color: white;
 }
 
 .containerm1{
@@ -581,12 +582,14 @@ img {vertical-align: middle;}
 	flex-direction: column;
 	border-radius: 15px;
 	box-shadow: rgba(0, 0, 0, 0.35) 10px 10px 8px;
+	line-height: 30px;
 }
 
 /*footer*/
 
 .footer {
-	background-color: #1f254a;
+	background-color: transparent;
+	padding-top: 80px;
 }
 
 .titlef {
@@ -600,7 +603,7 @@ img {vertical-align: middle;}
 .contentf {
 	display: flex;
 	justify-content: space-around;
-	
+	background-color: #1f254a;
 }
 
 .desc {
@@ -660,5 +663,16 @@ img {vertical-align: middle;}
 	display: flex;
 	padding: 5px;
 	color:white;
-	
+}
+
+.avatarimg {
+  	height: 50px!important;
+  	width: 50px!important;
+	border-radius: 15px;
+	transition: 0.4s;
+}
+
+.svgAvatar {
+	-webkit-filter: invert(100%);
+	filter: invert(100%)
 }

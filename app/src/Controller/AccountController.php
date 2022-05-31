@@ -44,8 +44,11 @@ class AccountController extends AbstractController {
         $form = $this->createForm(SettingsFormType::class, $user);
         $form->handleRequest($request);
 
+        $date = new \DateTime();
+
         if ($form->isSubmitted() && $form->isValid()) {
             $user->setUsername($form->get('username')->getData());
+            $user->setUpdatedAt($date);
             $avatarFile = $form->get('avatar')->getData();
             if ($avatarFile) {
                 

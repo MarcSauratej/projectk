@@ -21,14 +21,31 @@
     </div>
     <div class="avatar">
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-            <a href="{{ path('app_account') }}">Mi Cuenta</a>
+            <div class="navm">
+                <ul class="nav__list">
+                    <li>
+                        {% if app.user.avatar %}
+                            <img src="/img/avatars/{{ app.user.avatar }}" class="avatarimg">
+                        {% else %}
+                            <img src="/img/default-avatar.svg" class="avatarimg svgAvatar">
+                        {% endif %}
+                        <ul>
+                            <li><a href="{{ path('app_account') }}">Mi Cuenta</a></li>
+                            <li><a href="{{ path('app_home') }}">Recompensas</a></li>
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <li><a href="{{ path('admin') }}">Panel de Administración</a></li>
+                            {% endif %}
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         {% else %}
             <a href="{{ path('app_login') }}">Iniciar Sesión</a>
             <a href="{{ path('app_register') }}">Registrarse</a>
         {% endif %}
 
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-            <a href="{{ path('app_logout') }}">Desconectarse</a>
+            <a class="Btn btnSecondary" href="{{ path('app_logout') }}">Desconectarse</a>
         {% endif %}
     </div>
 </div>

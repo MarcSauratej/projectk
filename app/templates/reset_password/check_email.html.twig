@@ -2,11 +2,12 @@
 
 {% block title %}Project Kakarot - Cambio de Contraseña{% endblock %}
 
-{% block body %}
-    <p>
-        Se enviará un correo al email introducido que contiene un link para que puedas cambiar tu contraseña.
-        Este link expirará en {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
-    </p>
-    <p>Si no recibes un email por favor revisa tu carpeta de spam o <a href="{{ path('app_forgot_password_request') }}">prueba otra vez</a>.</p>
+{% block content %}
+    <div style="margin-bottom: 360px" class="caja">
+        <p>
+            Se enviará un correo al email introducido que contiene un link para que puedas cambiar tu contraseña.
+            Este link expirará en {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+            Si no recibes un email por favor revisa tu carpeta de spam o <a style="color:white;" href="{{ path('app_forgot_password_request') }}">prueba otra vez</a>.</p>
+    </div>
     
 {% endblock %}

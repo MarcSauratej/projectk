@@ -45,7 +45,11 @@ class RegistrationController extends AbstractController
                 )
             );
 
+            $date = new \DateTime();
+
             $user->setRoles(['ROLE_USER']);
+            $user->setCreatedAt($date);
+            $user->setUpdatedAt($date);
             $user->setDeactivated(false);
 
             $this->entityManager->persist($user);
