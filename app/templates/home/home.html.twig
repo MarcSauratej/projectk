@@ -5,43 +5,12 @@
 
     {% block content %}
             <div class="containerh">
-                <div class="containerh1">
-                    <div>
-                        <h2>Projecto Kakarot</h2>
-                        <p>descripción</p>
-                    </div>
-                </div>
                 <div class="quizes">
-                    <div class="quiz">
-                        <div class="quiz1">
-                            <p>Batallas</p>
-                            <p>description</p>
-                            <p>img</p>
-                            <button href"#">ENPEZAR</button>
-                        </div>
-                    </div>
-                    <div class="quiz">
-                        <div class="quiz1">
-                            <p>Manga</p>
-                            <p>description</p>
-                            <p>img</p>
-                            <button href"#">ENPEZAR</button>
-                        </div>
-                    </div>
-                    <div class="quiz">
-                        <div class="quiz1">
-                            <p>Anime</p>
-                            <p>description</p>
-                            <p>img</p>
-                            <button href"#">ENPEZAR</button>
-                        </div>
-                    </div>
-                    <div class="quiz">
-                        <div class="quiz1">
-                            <p>Razas</p>
-                            <p>description</p>
-                            <p>img</p>
-                            <button href"#">ENPEZAR</button>
+                    <div id="les-offres" class="container py-0">
+                        <div class="row mt-5 px-lg-0" style="flex-direction:column">
+                        {% for quiz in quizzes %}
+                            {% include 'partials/card-global.html.twig' %}
+                        {% endfor %}
                         </div>
                     </div>
                 </div>
