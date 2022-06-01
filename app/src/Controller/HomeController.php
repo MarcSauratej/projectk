@@ -11,6 +11,7 @@ use App\Entity\Characters;
 use App\Entity\Movies;
 use App\Entity\Sagas;
 use App\Entity\Specials;
+use App\Entity\Quiz;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,7 +22,8 @@ use Doctrine\Persistence\ManagerRegistry;
 
 class HomeController extends AbstractController {
 
-    public function __construct(ManagerRegistry $doctrine, EntityManagerInterface $entityManager)
+    public function __construct(EntityManagerInterface $entityManager, ManagerRegistry $doctrine)
+
     {
         $this->entityManager = $entityManager;
         $this->doctrine = $doctrine;
@@ -29,8 +31,27 @@ class HomeController extends AbstractController {
 
     #[Route('/', name: 'app_home')]
     public function index(Request $request): Response {
-        
-        return $this->render('home/home.html.twig');
+
+        $repository = $this->doctrine
+        ->getRepository(Quiz::class);
+        $quizzes = $repository->findAll();
+
+        return $this->render('home/home.html.twig', [
+            'quizzes' => $quizzes
+        ]);
+    }
+
+    #[Route('/quiz/{id}', name: 'app_quiz_view')]
+    public function quizView(Quiz $quiz, Request $request, int $id): Response {
+
+        $repository = $this->doctrine->getRepository(Quiz::class);
+        $quiz = $repository->findOneBy([
+            'id' => $id
+        ]);
+
+        return $this->render('home/viewQuiz.html.twig', [
+            'quizzes' => $quiz
+        ]);
     }
 
     #[Route('/manga', name: 'app_manga')]

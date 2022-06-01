@@ -417,22 +417,71 @@ body {
 }
 
 .quizes{
-	width: 50%;
+	width: 65%;
 	height: auto;
 	padding-top: 20px;	
 }
 
-.quiz1{
-	width: auto;
-	height: 50px;
+/*cards*/
+
+.une-quiz {
+	background-color: #000421;
+	color: white;
+	min-height: 100px;
+	border-radius: 20px;
+	border: 0.5px solid #fe7900;
+	margin-left: 2px;
+	width: 100%;
+	transition: 0.4s;
+	cursor: pointer;
+  }
+
+  #offerquiz{
+	  margin-top: 10px;
+	  margin-bottom: 10px;
+  }
+
+  .card-body{
+	  display: flex;
+	  align-items: center;
+  }
+
+  .category{
+	  width: 50%;
+	  display: flex;
+	  gap:65px;
+  }
+
+  .status{
+	  width: 50%;
+	  display: flex;
+	  justify-content: flex-end;
+	  gap: 100px;
+  }
+
+  #icon{
+	  padding-right: 30px;
+  }
+
+.card-title{
 	display: flex;
-	justify-content: space-between;
-	border: solid black 2px;
-	background-color: aquamarine;
+	align-items: center;
 }
-.quiz{
-	padding-bottom: 10px;
-}
+ 
+  .imgcard{
+	  width: 100px;
+	  height: 100px;
+	  padding: 20px;
+  }
+
+.une-quiz:hover {
+	background-color: #9201af;
+	color: white;
+  }
+
+  .une-quiz:hover i {
+	color: white !important;
+  }
 
 /*slider*/
 
