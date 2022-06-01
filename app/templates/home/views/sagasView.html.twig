@@ -1,0 +1,92 @@
+{% extends 'home/components/layout.html.twig' %}
+
+{% block title %}Project Kakarot - Sagas{% endblock %}
+
+{% block content %}
+    <div class="caja">
+        <div class="containerm1">
+            <div class="container1">
+                <div class="slideshow-container">
+                    <div class="mySlides fade">
+                        <img style="
+                                background-color: rgb(255, 255, 255);
+                                background-size: cover;
+                                height: 300px;
+                                width: auto;
+                                background-repeat: no-repeat;
+                                background-position: center;
+                                background-image: url(/img/views/{{ sagas.picture }});
+                                border-top-left-radius: 7px;
+                                border-top-right-radius: 7px;
+                                width:100%;
+                                vertical-align:middle">
+                    </div>
+
+                    {#% if allImages|length <= 1 %}
+                            <a class="prevSlider d-none" onclick="plusSlides(-1)">&#10094;</a>
+                            <a class="nextSlider d-none" onclick="plusSlides(1)">&#10095;</a>
+                        {% else %}
+                            <a class="prevSlider" onclick="plusSlides(-1)">&#10094;</a>
+                            <a class="nextSlider" onclick="plusSlides(1)">&#10095;</a>
+                        {% endif %}
+                        <br>
+                        {% if allImages|length <= 1 %}
+                        <div style="text-align:center; padding-bottom: 10px">  
+                            {% for image in allImages %}
+                                {% set currentSlide = currentSlide + 1 %}
+                                <span class="dotSlider d-none" onclick="currentSlide({{ currentSlide }})"></span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <div style="text-align:center; padding-bottom: 10px">  
+                            {% for image in allImages %}
+                                {% set currentSlide = currentSlide + 1 %}
+                                <span class="dotSlider" onclick="currentSlide({{ currentSlide }})"></span>
+                            {% endfor %}
+                        </div>
+                    {% endif %#}
+
+
+                    <a class="prev" onclick="plusSlides(-1)">❮</a>
+                    <a class="next" onclick="plusSlides(1)">❯</a>
+
+                </div>
+
+                <br>
+
+                <div style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+            <br><br>
+            <div class="container2">
+                <div class="viewsData">
+                    <p>Nombre:</p>
+                    <div>{{ sagas.name }}</div>
+                </div>
+                <hr color="#ff0000">
+                <div class="viewsData">
+                    <p>Episodios en DBZ:</p>
+                    <div>{{ sagas.episodes }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="containerm2">
+            <div class="titlePages">
+                <h2>{{ sagas.title }}</h2>
+            </div>
+            <br><br>
+            <div class="description">
+                <p>{{ sagas.description }}</p>
+                <br>
+            </div>
+        </div>
+    </div>
+{% endblock %} 
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}

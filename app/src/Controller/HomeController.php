@@ -73,7 +73,7 @@ class HomeController extends AbstractController {
             'id' => $id
         ]);
 
-        return $this->render('home/view.html.twig', [
+        return $this->render('home/views/mangaView.html.twig', [
             'mangas' => $manga
         ]);
     }
@@ -97,7 +97,7 @@ class HomeController extends AbstractController {
             'id' => $id
         ]);
 
-        return $this->render('home/view.html.twig', [
+        return $this->render('home/views/animeView.html.twig', [
             'animes' => $anime
         ]);
     }
@@ -121,7 +121,7 @@ class HomeController extends AbstractController {
             'id' => $id
         ]);
 
-        return $this->render('home/view.html.twig', [
+        return $this->render('home/views/moviesView.html.twig', [
             'movies' => $movies
         ]);
     }
@@ -145,7 +145,7 @@ class HomeController extends AbstractController {
             'id' => $id
         ]);
 
-        return $this->render('home/view.html.twig', [
+        return $this->render('home/views/specialsView.html.twig', [
             'specials' => $specials
         ]);
     }
@@ -169,7 +169,7 @@ class HomeController extends AbstractController {
             'id' => $id
         ]);
 
-        return $this->render('home/view.html.twig', [
+        return $this->render('home/views/sagasView.html.twig', [
             'sagas' => $sagas
         ]);
     }
@@ -193,7 +193,7 @@ class HomeController extends AbstractController {
             'id' => $id
         ]);
 
-        return $this->render('home/view.html.twig', [
+        return $this->render('home/views/battlesView.html.twig', [
             'battles' => $battles
         ]);
     }
@@ -217,7 +217,7 @@ class HomeController extends AbstractController {
             'id' => $id
         ]);
 
-        return $this->render('home/view.html.twig', [
+        return $this->render('home/views/breedsView.html.twig', [
             'breeds' => $breeds
         ]);
     }
@@ -241,7 +241,7 @@ class HomeController extends AbstractController {
             'id' => $id
         ]);
 
-        return $this->render('home/view.html.twig', [
+        return $this->render('home/views/charactersView.html.twig', [
             'characters' => $characters
         ]);
     }

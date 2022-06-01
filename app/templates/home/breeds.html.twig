@@ -9,7 +9,7 @@
             <div onclick="window.location.href='{{ path('app_breeds_view', { 'id': breed.id }) }}'" class="cardView">
                 <div class="cardImage" style="background: url({{ asset('img/views/'~ breed.picture) }});background-size: cover;border-radius: 5px 5px 0 0;height: 15rem;box-shadow: inset hsla(0, 0, 0, .2) 0 64px 64px 16px;background-position: center;"></div>
                 <div class="cardBody">
-                    <h5>{{ breed.title }}</h5>
+                    <h5>{{ breed.name }}</h5>
                 </div>
             </div>
         {% endfor %}

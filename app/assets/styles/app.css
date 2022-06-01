@@ -606,22 +606,12 @@ body {
 }
 
 
-.nombre{
+.viewsData{
 	display: flex;
 	justify-content: space-between;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	padding-left: 30px;
-	padding-right: 30px;
-}
-
-.fecha{
-	display: flex;
-	justify-content: space-between;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	padding-left: 30px;
-	padding-right: 30px;
+	padding: 10px;
+	align-items: center;
+	gap: 30px;
 }
 
 .titlePages{
@@ -756,6 +746,7 @@ body {
 #scrollButton:hover {
 	border-color: var(--hover);
 	color: #fff;
+	cursor: pointer;
 }
 
 #scrollButton:focus {
