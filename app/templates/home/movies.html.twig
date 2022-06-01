@@ -1,0 +1,18 @@
+{% extends 'home/components/layout.html.twig' %}
+
+{% block title %}Project Kakarot - Películas{% endblock %}
+
+{% block content %}
+    
+    <div class="cards">
+        {% for movie in movies %}
+            <div onclick="window.location.href='{{ path('app_movies_view', { 'id': movie.id }) }}'" class="cardView">
+                <div class="cardImage" style="background: url({{ asset('img/views/'~ movie.picture) }});background-size: cover;border-radius: 5px 5px 0 0;height: 15rem;box-shadow: inset hsla(0, 0, 0, .2) 0 64px 64px 16px;background-position: center;"></div>
+                <div class="cardBody">
+                    <h5>{{ movie.title }}</h5>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

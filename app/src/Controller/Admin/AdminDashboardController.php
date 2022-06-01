@@ -4,6 +4,14 @@ namespace App\Controller\Admin;
 
 use App\Entity\User;
 use App\Entity\Quiz;
+use App\Entity\Manga;
+use App\Entity\Anime;
+use App\Entity\Battles;
+use App\Entity\Breeds;
+use App\Entity\Characters;
+use App\Entity\Movies;
+use App\Entity\Specials;
+use App\Entity\Sagas;
 
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -40,6 +48,13 @@ class AdminDashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         return [
+            MenuItem::section('Users'),
+            MenuItem::linkToCrud('Users', 'fa fa-user', User::class)
+            ->setController(UserCrudController::class),
+
+            MenuItem::linkToCrud('Add User', 'fa fa-tags', User::class)
+            ->setAction('new'),
+
             MenuItem::section('Quizzes'),
             MenuItem::linkToCrud('Quizzes', 'fa fa-file-text', Quiz::class)
             ->setController(QuizCrudController::class),
@@ -47,11 +62,60 @@ class AdminDashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Add Quiz', 'fa fa-tags', Quiz::class)
             ->setAction('new'),
 
-            MenuItem::section('Users'),
-            MenuItem::linkToCrud('Users', 'fa fa-user', User::class)
-            ->setController(UserCrudController::class),
+            MenuItem::section('Manga'),
+            MenuItem::linkToCrud('Manga', 'fa fa-file-text', Manga::class)
+            ->setController(MangaCrudController::class),
 
-            MenuItem::linkToCrud('Add User', 'fa fa-tags', User::class)
+            MenuItem::linkToCrud('Add Manga', 'fa fa-tags', Manga::class)
+            ->setAction('new'),
+
+            MenuItem::section('Anime'),
+            MenuItem::linkToCrud('Anime', 'fa fa-file-text', ManAnimega::class)
+            ->setController(AnimeCrudController::class),
+
+            MenuItem::linkToCrud('Add Anime', 'fa fa-tags', Anime::class)
+            ->setAction('new'),
+
+            MenuItem::section('Movies'),
+            MenuItem::linkToCrud('Movies', 'fa fa-file-text', Movies::class)
+            ->setController(MoviesCrudController::class),
+
+            MenuItem::linkToCrud('Add Movies', 'fa fa-tags', Movies::class)
+            ->setAction('new'),
+
+            MenuItem::section('Specials'),
+            MenuItem::linkToCrud('Specials', 'fa fa-file-text', Specials::class)
+            ->setController(SpecialsCrudController::class),
+
+            MenuItem::linkToCrud('Add Specials', 'fa fa-tags', Specials::class)
+            ->setAction('new'),
+
+            MenuItem::section('Sagas'),
+            MenuItem::linkToCrud('Sagas', 'fa fa-file-text', Sagas::class)
+            ->setController(SagasCrudController::class),
+
+            MenuItem::linkToCrud('Add Sagas', 'fa fa-tags', Sagas::class)
+            ->setAction('new'),
+
+            MenuItem::section('Battles'),
+            MenuItem::linkToCrud('Battles', 'fa fa-file-text', Battles::class)
+            ->setController(BattlesCrudController::class),
+
+            MenuItem::linkToCrud('Add Battles', 'fa fa-tags', Battles::class)
+            ->setAction('new'),
+
+            MenuItem::section('Breeds'),
+            MenuItem::linkToCrud('Breeds', 'fa fa-file-text', Breeds::class)
+            ->setController(BreedsCrudController::class),
+
+            MenuItem::linkToCrud('Add Breeds', 'fa fa-tags', Breeds::class)
+            ->setAction('new'),
+
+            MenuItem::section('Characters'),
+            MenuItem::linkToCrud('Characters', 'fa fa-file-text', Characters::class)
+            ->setController(CharactersCrudController::class),
+
+            MenuItem::linkToCrud('Add Characters', 'fa fa-tags', Characters::class)
             ->setAction('new'),
 
             MenuItem::section('Access'),

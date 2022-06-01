@@ -91,6 +91,7 @@ body {
 	margin-bottom: 1rem;
 	border: 1px solid transparent;
 	border-radius: 0.25rem;
+	z-index: -1;
 }
 
 .successAlert {
@@ -443,29 +444,42 @@ body {
   margin: auto;
 }
 
+.caja{
+	display: flex;
+	height: auto;
+	background-color: #161a3a;
+	padding: 10px;
+	margin: 50px;
+	border: solid #fe7900 2px;
+	border-radius: 15px;
+	box-shadow: rgba(0, 0, 0, 0.35) 15px 10px 21px;
+	color: white;
+}
+
 .prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -35px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
+	cursor: pointer;
+	position: absolute;
+	top: 60%;
+	width: auto;
+	padding: 16px;
+	margin-top: -35px;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	transition: 0.6s ease;
+	border-radius: 0 3px 3px 0;
+	user-select: none;
+  }
+  
 .next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
+	right: 0;
+	border-radius: 3px 0 0 3px;
+}
+  
+.prev:hover, .next:hover {
+	background-color: rgba(0,0,0,0.8);
 }
 
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
 
 .text {
   color: #f2f2f2;
@@ -507,42 +521,6 @@ body {
 }
 
 /*pages*/
-
-.caja{
-	display: flex;
-	height: auto;
-	background-color: #161a3a;
-	padding: 10px;
-	margin: 50px;
-	border: solid #fe7900 2px;
-	border-radius: 15px;
-	box-shadow: rgba(0, 0, 0, 0.35) 15px 10px 21px;
-	color: white;
-}
-
-.prev, .next {
-	cursor: pointer;
-	position: absolute;
-	top: 60%;
-	width: auto;
-	padding: 16px;
-	margin-top: -22px;
-	color: white;
-	font-weight: bold;
-	font-size: 18px;
-	transition: 0.6s ease;
-	border-radius: 0 3px 3px 0;
-	user-select: none;
-  }
-  
-.next {
-	right: 0;
-	border-radius: 3px 0 0 3px;
-}
-  
-.prev:hover, .next:hover {
-	background-color: rgba(0,0,0,0.8);
-}
 
 .containerm1{
 	width: 30%;
@@ -773,4 +751,44 @@ body {
 	grid-column-end: 3;
 	grid-row: 2;
 	height: 300px;
+}
+
+.cardView {
+	position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #000421;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+	width: 18rem;
+	color: white;
+	transition: 0.4s;
+}
+
+.cardView:hover {
+	cursor: pointer;
+	transform: scale(1.2);
+}
+
+.cardImage {
+	background-size: cover;
+	border-radius: 5px 5px 0 0;
+	height: 15rem;
+	box-shadow: inset hsla(0, 0, 0, .2) 0 64px 64px 16px;
+}
+
+.cardBody {
+	padding: 1.25rem;
+}
+
+.cards {
+	padding-top: 50px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 50px;
+	margin-bottom: 80px;
 }

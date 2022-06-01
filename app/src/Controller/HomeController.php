@@ -3,12 +3,29 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Entity\Manga;
+use App\Entity\Anime;
+use App\Entity\Battles;
+use App\Entity\Breeds;
+use App\Entity\Characters;
+use App\Entity\Movies;
+use App\Entity\Sagas;
+use App\Entity\Specials;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ManagerRegistry;
 
 class HomeController extends AbstractController {
+
+    public function __construct(ManagerRegistry $doctrine, EntityManagerInterface $entityManager)
+    {
+        $this->entityManager = $entityManager;
+        $this->doctrine = $doctrine;
+    }
 
     #[Route('/', name: 'app_home')]
     public function index(Request $request): Response {
@@ -19,48 +36,192 @@ class HomeController extends AbstractController {
     #[Route('/manga', name: 'app_manga')]
     public function manga(Request $request): Response {
 
-        return $this->render('home/manga.html.twig');
+        $repository = $this->doctrine->getRepository(Manga::class);
+        $manga = $repository->findAll();
+
+        return $this->render('home/manga.html.twig', [
+            'mangas' => $manga
+        ]);
+    }
+
+    #[Route('/manga/{id}', name: 'app_manga_view')]
+    public function mangaView(Manga $manga, Request $request, int $id): Response {
+
+        $repository = $this->doctrine->getRepository(Manga::class);
+        $manga = $repository->findOneBy([
+            'id' => $id
+        ]);
+
+        return $this->render('home/view.html.twig', [
+            'mangas' => $manga
+        ]);
     }
 
     #[Route('/anime', name: 'app_anime')]
     public function anime(Request $request): Response {
 
-        return $this->render('home/anime.html.twig');
+        $repository = $this->doctrine->getRepository(Anime::class);
+        $anime = $repository->findAll();
+
+        return $this->render('home/anime.html.twig', [
+            'animes' => $anime
+        ]);
+    }
+
+    #[Route('/anime/{id}', name: 'app_anime_view')]
+    public function animeView(Anime $anime, Request $request, int $id): Response {
+
+        $repository = $this->doctrine->getRepository(Anime::class);
+        $anime = $repository->findOneBy([
+            'id' => $id
+        ]);
+
+        return $this->render('home/view.html.twig', [
+            'animes' => $anime
+        ]);
     }
 
     #[Route('/movies', name: 'app_movies')]
     public function movies(Request $request): Response {
 
-        return $this->render('home/movies.html.twig');
+        $repository = $this->doctrine->getRepository(Movies::class);
+        $movies = $repository->findAll();
+
+        return $this->render('home/movies.html.twig', [
+            'movies' => $movies
+        ]);
+    }
+
+    #[Route('/movies/{id}', name: 'app_movies_view')]
+    public function moviesView(Movies $movies, Request $request, int $id): Response {
+
+        $repository = $this->doctrine->getRepository(Movies::class);
+        $movies = $repository->findOneBy([
+            'id' => $id
+        ]);
+
+        return $this->render('home/view.html.twig', [
+            'movies' => $movies
+        ]);
     }
 
     #[Route('/specials', name: 'app_specials')]
     public function specials(Request $request): Response {
 
-        return $this->render('home/specials.html.twig');
+        $repository = $this->doctrine->getRepository(Specials::class);
+        $specials = $repository->findAll();
+
+        return $this->render('home/specials.html.twig', [
+            'specials' => $specials
+        ]);
+    }
+
+    #[Route('/specials/{id}', name: 'app_specials_view')]
+    public function specialsView(Specials $specials, Request $request, int $id): Response {
+
+        $repository = $this->doctrine->getRepository(Specials::class);
+        $specials = $repository->findOneBy([
+            'id' => $id
+        ]);
+
+        return $this->render('home/view.html.twig', [
+            'specials' => $specials
+        ]);
     }
 
     #[Route('/sagas', name: 'app_sagas')]
     public function sagas(Request $request): Response {
 
-        return $this->render('home/sagas.html.twig');
+        $repository = $this->doctrine->getRepository(Sagas::class);
+        $sagas = $repository->findAll();
+
+        return $this->render('home/sagas.html.twig', [
+            'sagas' => $sagas
+        ]);
+    }
+
+    #[Route('/sagas/{id}', name: 'app_sagas_view')]
+    public function sagasView(Sagas $sagas, Request $request, int $id): Response {
+
+        $repository = $this->doctrine->getRepository(Sagas::class);
+        $sagas = $repository->findOneBy([
+            'id' => $id
+        ]);
+
+        return $this->render('home/view.html.twig', [
+            'sagas' => $sagas
+        ]);
     }
 
     #[Route('/battles', name: 'app_battles')]
     public function battles(Request $request): Response {
 
-        return $this->render('home/battles.html.twig');
+        $repository = $this->doctrine->getRepository(Battles::class);
+        $battles = $repository->findAll();
+
+        return $this->render('home/battles.html.twig', [
+            'battles' => $battles
+        ]);
     }
 
-    #[Route('/razas', name: 'app_razas')]
-    public function razas(Request $request): Response {
+    #[Route('/battles/{id}', name: 'app_battles_view')]
+    public function battlesView(Battles $battles, Request $request, int $id): Response {
 
-        return $this->render('home/razas.html.twig');
+        $repository = $this->doctrine->getRepository(Battles::class);
+        $battles = $repository->findOneBy([
+            'id' => $id
+        ]);
+
+        return $this->render('home/view.html.twig', [
+            'battles' => $battles
+        ]);
+    }
+
+    #[Route('/breeds', name: 'app_breeds')]
+    public function breeds(Request $request): Response {
+
+        $repository = $this->doctrine->getRepository(Breeds::class);
+        $breeds = $repository->findAll();
+
+        return $this->render('home/breeds.html.twig', [
+            'breeds' => $breeds
+        ]);
+    }
+
+    #[Route('/breeds/{id}', name: 'app_breeds_view')]
+    public function breedsView(Breeds $breeds, Request $request, int $id): Response {
+
+        $repository = $this->doctrine->getRepository(Breeds::class);
+        $breeds = $repository->findOneBy([
+            'id' => $id
+        ]);
+
+        return $this->render('home/view.html.twig', [
+            'breeds' => $breeds
+        ]);
     }
 
     #[Route('/characters', name: 'app_characters')]
     public function characters(Request $request): Response {
 
-        return $this->render('home/characters.html.twig');
+        $repository = $this->doctrine->getRepository(Characters::class);
+        $characters = $repository->findAll();
+
+        return $this->render('home/characters.html.twig', [
+            'characters' => $characters
+        ]);
+    }
+
+    #[Route('/characters/{id}', name: 'app_characters_view')]
+    public function charactersView(Characters $characters, Request $request, int $id): Response {
+
+        $repository = $this->doctrine->getRepository(Characters::class);
+        $characters = $repository->findOneBy([
+            'id' => $id
+        ]);
+
+        return $this->render('home/view.html.twig', [
+            'characters' => $characters
+        ]);
     }
 }
