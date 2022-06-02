@@ -832,3 +832,15 @@ body {
 	gap: 50px;
 	margin-bottom: 80px;
 }
+
+.imgView {
+	background-color: rgb(255, 255, 255);
+	background-size: cover;
+	height: 300px;
+	width: auto;
+	background-repeat: no-repeat;
+	background-position: center;
+	border-radius: 7px;
+	width:100%;
+	vertical-align: middle;
+}
