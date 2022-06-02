@@ -889,6 +889,7 @@ body {
 	margin-bottom: 80px;
 }
 
+
 /*responsive*/
 
 
@@ -967,3 +968,16 @@ body {
 		margin-left:0px;
 	}
   }
+
+.imgView {
+	background-color: rgb(255, 255, 255);
+	background-size: cover;
+	height: 300px;
+	width: auto;
+	background-repeat: no-repeat;
+	background-position: center;
+	border-radius: 7px;
+	width:100%;
+	vertical-align: middle;
+}
+
