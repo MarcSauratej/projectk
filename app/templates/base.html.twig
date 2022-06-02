@@ -2,6 +2,7 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no minimal-ui">
         <title>{% block title %}Project Kakarot{% endblock %}</title>
         <link rel="icon" href="/img/pklogo.svg" sizes="any" type="image/svg+xml">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -68,6 +69,14 @@
         }, 20);
 
     });
+
+    function openNav() {
+  document.getElementById("myNav-mobile").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav-mobile").style.width = "0%";
+}
 
 </script>
 

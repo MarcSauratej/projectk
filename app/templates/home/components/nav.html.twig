@@ -48,4 +48,31 @@
             <a class="Btn btnSecondary" href="{{ path('app_logout') }}">CERRAR SESIÓN</a>
         {% endif %}
     </div>
+
+<span  class="button-nav" onclick="openNav()">&#9776;</span>
 </div>
+
+<div id="myNav-mobile" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <ul class="nav__list-mobile">
+                <li><a id="principal" href="{{ path('app_manga') }}">Manga</a></li>
+                <li><a id="principal" href="{{ path('app_anime') }}">Anime</a>
+                <li><a href="{{ path('app_movies') }}">Películas</a></li>
+                <li><a href="{{ path('app_specials') }}">Especiales/OVAs</a></li>
+                <li><a id="principal" href="{{ path('app_sagas') }}">Sagas</a>
+                <li><a href="{{ path('app_battles') }}">Batallas</a></li>
+                <li><a id="principal" href="{{ path('app_breeds') }}">Razas</a>
+                <li><a href="{{ path('app_characters') }}">Personajes</a></li>
+            </ul>
+            <br><br>
+            <ul class="nav__list-mobile">
+                <li><a href="{{ path('app_account') }}">Mi Cuenta</a></li>
+                <li><a href="{{ path('app_home') }}">Recompensas</a></li>
+                {% if is_granted('ROLE_ADMIN') %}
+                     <li><a href="{{ path('admin') }}">Panel de Administración</a></li>
+                {% endif %}
+            </ul>
+        </div>
+</div>
+
