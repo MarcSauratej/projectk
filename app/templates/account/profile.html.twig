@@ -12,18 +12,19 @@
     <div class="alert successAlert" role="alert">{{ flash_message }}</div>
 {% endfor %}
 
-<div class="caja" style="gap:50px;padding:20px;width:fit-content;margin:auto;margin-top:50px;height:500px;">
-    <div style="height:305px;" class="settingsForm">
-        <div style="padding-left:20px;border-bottom-left-radius:unset;border-bottom-right-radius:unset;" class="container2">
-            <div class="emailSettings">
-                <h3>Datos Personales</h3>
-                <p>Nombre de Usuario: {{ app.user.username}}</p>
-                <p>Email: {{ app.user.email}}</p>
-                <p>Registrado el día: {{ app.user.createdAt|date('d-m-Y')  }}</p>
+<div class="caja caja-profile-mobile" style="gap:50px;padding:20px;width:fit-content;margin:auto;margin-top:50px;">
+    <div class="content-caja">
+        <div style="height:305px;" class="settingsForm">
+            <div style="padding-left:20px;border-bottom-left-radius:unset;border-bottom-right-radius:unset;" class="container2">
+                <div class="emailSettings">
+                    <h3>Datos Personales</h3>
+                    <p>Nombre de Usuario: {{ app.user.username}}</p>
+                    <p>Email: {{ app.user.email}}</p>
+                    <p>Registrado el día: {{ app.user.createdAt|date('d-m-Y')  }}</p>
+                </div>
             </div>
-        </div>
 
-        <div style="padding-left:20px;padding-right:20px;padding-bottom:20px;border-top-left-radius:unset;border-top-right-radius:unset;height:inherit;" class="container2">
+        <div id="settingsId" style="padding-left:20px;padding-right:20px;padding-bottom:20px;border-top-left-radius:unset;border-top-right-radius:unset;height:inherit;" class="container2">
             {{ form_start(settingsForm) }}
                 <h3>Editar Perfil</h3>
                 {{ form_row(settingsForm.username) }}
@@ -39,7 +40,6 @@
             <button style="display:flex;margin:auto;" type="submit" class="Btn btnSecondary">GUARDAR CAMBIOS</button>
             {{ form_end(settingsForm) }}
         </div>
-    </div>
 
 <div class="gridContainer">
     <div style="padding-left:20px;padding-right:20px;height:100px;padding-bottom:20px;" id="gridInContainer1" class="container2">
@@ -56,33 +56,33 @@
                 </div>
             {% endif %}
         </div>
-    </div>
 
-    <div style="padding-left:20px;padding-right:20px;height:100px;padding-bottom:20px;" id="gridInContainer2" class="container2">
-        <div class="security">
-            <h3>Seguridad</h3>
-            <a href="{{ path('app_forgot_password_request') }}" class="Btn btnSecondary" type="button">CAMBIAR CONTRASEÑA</a>
-            <a id="buttonDeleteAccount" class="Btn btnDanger" href="#deleteAccount" type="button">ELIMINAR CUENTA</a>
+        <div style="padding-left:20px;padding-right:20px;height:100px;padding-bottom:20px;" id="gridInContainer2" class="container2">
+            <div class="security">
+                <h3>Seguridad</h3>
+                <a href="{{ path('app_forgot_password_request') }}" class="Btn btnSecondary" type="button">CAMBIAR CONTRASEÑA</a>
+                <a id="buttonDeleteAccount" class="Btn btnDanger" href="#deleteAccount" type="button">ELIMINAR CUENTA</a>
+            </div>
+        </div>
+
+        <div style="padding-left:20px;padding-right:20px;padding-bottom:20px;" class="container2" id="gridInContainer3">
+            <div class="rewards">
+                <h3>Mis Recompensas</h3>
+            </div>
         </div>
     </div>
-
-    <div style="padding-left:20px;padding-right:20px;padding-bottom:20px;" class="container2" id="gridInContainer3">
-        <div class="rewards">
-            <h3>Mis Recompensas</h3>
-        </div>
-    </div>
-</div>
-    <div id="myModal" class="modal">
-        <div class="modal-content" id="#deleteAccount">
-            <div class="modal-header">
-                <span class="close">&times;</span>
-                <h2>Confirmación de eliminación de cuenta</h2>
+        <div id="myModal" class="modal">
+            <div class="modal-content" id="#deleteAccount">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Confirmación de eliminación de cuenta</h2>
+                </div>
+                <div class="modal-body">
+                    <p>¿Estás seguro que deseas eliminar tu cuenta?</p>
+                    <p>Perderás todos tus datos.</p>
+                </div>
+                <a class="Btn btnDanger" href="{{ path('app_account_delete')}}">CONFIRMAR</a>
             </div>
-            <div class="modal-body">
-                <p>¿Estás seguro que deseas eliminar tu cuenta?</p>
-                <p>Perderás todos tus datos.</p>
-            </div>
-            <a class="Btn btnDanger" href="{{ path('app_account_delete')}}">CONFIRMAR</a>
         </div>
     </div>
 </div>

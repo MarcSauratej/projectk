@@ -889,15 +889,17 @@ body {
 	margin-bottom: 80px;
 }
 
+.content-caja{
+	display: flex;
+	gap: 50px;
+}
 
 /*responsive*/
 
-
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
 
 	html {
 		font-size: 18px;
-	  
 	}
 
 	.navm{
@@ -914,13 +916,13 @@ body {
 	.button-nav{
 		color: white;
 		display: flex;
-		cursor:pointer;
-		padding-right:30px ;
+		cursor: pointer;
+		padding-right: 30px;
 		width: 43px;
 		font-size: 41px;
 	}
 	.logo img{
-		width:143px;
+		width: 143px;
 		height: 57px;
 		cursor: pointer;
 		padding: 20px;
@@ -952,6 +954,46 @@ body {
 		display: none;
 	}
 
+	.cardView:hover{
+		transform: scale(1.1);
+	}
+
+	.caja{
+		display: block;
+		margin: 15px;
+	}
+
+	.containerm1{
+		width: 100%;
+		border-right: none;
+		margin-top: 2px;
+		margin-bottom: 10px;
+		padding: 0px;
+	}
+
+	.containerm2{
+		width: 100%;
+		height: auto;
+		padding: 0px;
+		border-left:none;
+		margin-top: 40px;
+		margin-bottom: 15px;
+	}
+
+	.caja-profile-mobile{
+		height: auto;
+		padding: 0px;
+	}
+
+	.settingsForm{
+		width: 100%;
+		margin-bottom: 20px;
+	}
+
+	.gridContainer{
+		width: 100%;
+	}
+
 	.contentf{
 		display: block;
 		padding: 15px;
@@ -960,14 +1002,62 @@ body {
 	.desc {
 		width: 100%;
 		color:white;
-		padding: 20px;
+		padding: 0px;
 	}
-	
+
 	.link {
 		width: 100%;
 		margin-left:0px;
+		padding: 0px;
 	}
-  }
+
+	.content-caja{
+		display: block;
+		gap: 50px;
+	}
+
+	.gridContainer {
+		grid-gap: 25px;
+	}
+
+	#gridInContainer1 {
+		margin-top: 270px;
+		height: auto!important;
+	}
+
+	#gridInContainer2 {
+		margin-top: 270px;
+		height: auto!important;
+	}
+
+	.emailVerification div h3 {
+		font-size: 18px;
+	}
+
+	.emailVerification div button {
+		font-size: 12px;
+	}
+
+	.security {
+		padding: 0px;
+		gap: 5px;
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.security h3 {
+		font-size: 18px;
+	}
+
+	.security a {
+		font-size: 12px;
+	}
+
+	#settingsId {
+		height: auto!important;
+	}
+
+}
 
 .imgView {
 	background-color: rgb(255, 255, 255);
