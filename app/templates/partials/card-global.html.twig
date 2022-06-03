@@ -2,14 +2,14 @@
     <div class="une-quiz">
         <div class="card-body">
             <div class="category">
-                <img src="img/quiz/{{ quiz.image }}" class="imgcard">
+                <img src="img/views/{{ quiz.image }}" class="imgcard" alt="Imagen de {{ quiz.name }}">
                 <h3 class="card-title">
                     {{ quiz.name }}
                 </h3>
             </div>
             <div class="status">
                 <p class="text-break">Estado : {{ quiz.status }}</p>
-                <svg id="icon" class="svgAvatar" xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M15.2 43.9 12.4 41.05 29.55 23.9 12.4 6.75 15.2 3.9 35.2 23.9Z"/></svg>
+                <svg alt="Ir al quiz de {{ quiz.name }}" id="icon" class="svgAvatar" xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M15.2 43.9 12.4 41.05 29.55 23.9 12.4 6.75 15.2 3.9 35.2 23.9Z"/></svg>
             </div>
         </div>
     </div>

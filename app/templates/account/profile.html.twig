@@ -24,34 +24,37 @@
                 </div>
             </div>
 
-            <div id="settingsId" style="padding-left:20px;padding-right:20px;padding-bottom:20px;border-top-left-radius:unset;border-top-right-radius:unset;height:inherit;" class="container2">
-                {{ form_start(settingsForm) }}
-                    <h3>Editar Perfil</h3>
-                    {{ form_row(settingsForm.username) }}
-                    <div style="margin:auto;padding-bottom:20px;padding-top:20px;" class="avatar-wrapper" data-tippy-placement="bottom" title="Cambiar Avatar">
-                        {% if user.avatar is not null %}
-                            <img class="profile-pic" src="/img/avatars/{{ user.avatar }}" alt="" />
-                        {% else %}
-                            <img class="profile-pic" src="/img/default-avatar.svg" alt="" />
-                        {% endif %}
-                        <div class="upload-button"></div>
-                        {{ form_widget(settingsForm.avatar, {'attr':{'class':'file-upload'}})}}
-                    </div>
-                <button style="display:flex;margin:auto;" type="submit" class="Btn btnSecondary">GUARDAR CAMBIOS</button>
-                {{ form_end(settingsForm) }}
-            </div>
+        <div id="settingsId" style="padding-left:20px;padding-right:20px;padding-bottom:20px;border-top-left-radius:unset;border-top-right-radius:unset;height:inherit;" class="container2">
+            {{ form_start(settingsForm) }}
+                <h3>Editar Perfil</h3>
+                {{ form_row(settingsForm.username) }}
+                <div style="margin:auto;padding-bottom:20px;padding-top:20px;" class="avatar-wrapper" data-tippy-placement="bottom" title="Cambiar Avatar">
+                    {% if user.avatar is not null %}
+                        <img class="profile-pic" src="/img/avatars/{{ user.avatar }}" alt="Avatar personalizado de usuario" />
+                    {% else %}
+                        <img class="profile-pic" src="/img/default-avatar.svg" alt="Avatar por defecto de usuario" />
+                    {% endif %}
+                    <div class="upload-button"></div>
+                    {{ form_widget(settingsForm.avatar, {'attr':{'class':'file-upload'}})}}
+                </div>
+            <button style="display:flex;margin:auto;" type="submit" class="Btn btnSecondary">GUARDAR CAMBIOS</button>
+            {{ form_end(settingsForm) }}
         </div>
 
-    <div class="gridContainer">
-        <div style="padding-left:20px;padding-right:20px;height:100px;padding-bottom:20px;" id="gridInContainer1" class="container2">
-            <div class="emailVerification">
-                {% if user.isVerified == false %}
-                    <div>
-                        <h3>Reenviar Verificación de Email</h3>
-                        <button onclick=window.location.href="{{ path('app_account_emailVerify')}}" class="Btn btnPrimary" title="Reenviar Verificación de Email">REENVIAR</button>
-                    </div>
-                {% endif %}
-            </div>
+<div class="gridContainer">
+    <div style="padding-left:20px;padding-right:20px;height:100px;padding-bottom:20px;" id="gridInContainer1" class="container2">
+        <div class="emailVerification">
+            {% if user.isVerified == false %}
+                <div>
+                    <h3>Reenviar Verificación de Email</h3>
+                    <button onclick=window.location.href="{{ path('app_account_emailVerify')}}" class="Btn btnPrimary" title="Reenviar Verificación de Email">REENVIAR</button>
+                </div>
+            {% else %}
+                <div>
+                    <h3>Reenviar Verificación de Email</h3>
+                    <button onclick=window.location.href="{{ path('app_account_emailVerify')}}" class="Btn btnPrimary" title="Ya estás verificado" disabled>REENVIAR</button>
+                </div>
+            {% endif %}
         </div>
 
         <div style="padding-left:20px;padding-right:20px;height:100px;padding-bottom:20px;" id="gridInContainer2" class="container2">
