@@ -40,48 +40,50 @@
             <button style="display:flex;margin:auto;" type="submit" class="Btn btnSecondary">GUARDAR CAMBIOS</button>
             {{ form_end(settingsForm) }}
         </div>
-
-<div class="gridContainer">
-    <div style="padding-left:20px;padding-right:20px;height:100px;padding-bottom:20px;" id="gridInContainer1" class="container2">
-        <div class="emailVerification">
-            {% if user.isVerified == false %}
-                <div>
-                    <h3>Reenviar Verificación de Email</h3>
-                    <button onclick=window.location.href="{{ path('app_account_emailVerify')}}" class="Btn btnPrimary" title="Reenviar Verificación de Email">REENVIAR</button>
-                </div>
-            {% else %}
-                <div>
-                    <h3>Reenviar Verificación de Email</h3>
-                    <button onclick=window.location.href="{{ path('app_account_emailVerify')}}" class="Btn btnPrimary" title="Ya estás verificado" disabled>REENVIAR</button>
-                </div>
-            {% endif %}
-        </div>
-
-        <div style="padding-left:20px;padding-right:20px;height:100px;padding-bottom:20px;" id="gridInContainer2" class="container2">
-            <div class="security">
-                <h3>Seguridad</h3>
-                <a href="{{ path('app_forgot_password_request') }}" class="Btn btnSecondary" type="button">CAMBIAR CONTRASEÑA</a>
-                <a id="buttonDeleteAccount" class="Btn btnDanger" href="#deleteAccount" type="button">ELIMINAR CUENTA</a>
-            </div>
-        </div>
-
-        <div style="padding-left:20px;padding-right:20px;padding-bottom:20px;" class="container2" id="gridInContainer3">
-            <div class="rewards">
-                <h3>Mis Recompensas</h3>
-            </div>
-        </div>
     </div>
-        <div id="myModal" class="modal">
-            <div class="modal-content" id="#deleteAccount">
-                <div class="modal-header">
-                    <span class="close">&times;</span>
-                    <h2>Confirmación de eliminación de cuenta</h2>
+
+    <div class="gridContainer">
+        <div style="padding-left:20px;padding-right:20px;height:100px;padding-bottom:20px;" id="gridInContainer1" class="container2">
+            <div class="emailVerification">
+                {% if user.isVerified == false %}
+                    <div>
+                        <h3>Reenviar Verificación de Email</h3>
+                        <button onclick=window.location.href="{{ path('app_account_emailVerify')}}" class="Btn btnPrimary" title="Reenviar Verificación de Email">REENVIAR</button>
+                    </div>
+                {% else %}
+                    <div>
+                        <h3>Reenviar Verificación de Email</h3>
+                        <button onclick=window.location.href="{{ path('app_account_emailVerify')}}" class="Btn btnPrimary" title="Ya estás verificado" disabled>REENVIAR</button>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+            <div style="padding-left:20px;padding-right:20px;height:100px;padding-bottom:20px;" id="gridInContainer2" class="container2">
+                <div class="security">
+                    <h3>Seguridad</h3>
+                    <a href="{{ path('app_forgot_password_request') }}" class="Btn btnSecondary" type="button">CAMBIAR CONTRASEÑA</a>
+                    <a id="buttonDeleteAccount" class="Btn btnDanger" href="#deleteAccount" type="button">ELIMINAR CUENTA</a>
                 </div>
-                <div class="modal-body">
-                    <p>¿Estás seguro que deseas eliminar tu cuenta?</p>
-                    <p>Perderás todos tus datos.</p>
+            </div>
+
+            <div style="padding-left:20px;padding-right:20px;padding-bottom:20px;" class="container2" id="gridInContainer3">
+                <div class="rewards">
+                    <h3>Mis Recompensas</h3>
                 </div>
-                <a class="Btn btnDanger" href="{{ path('app_account_delete')}}">CONFIRMAR</a>
+            </div>
+        </div>
+            <div id="myModal" class="modal">
+                <div class="modal-content" id="#deleteAccount">
+                    <div class="modal-header">
+                        <span class="close">&times;</span>
+                        <h2>Confirmación de eliminación de cuenta</h2>
+                    </div>
+                    <div class="modal-body">
+                        <p>¿Estás seguro que deseas eliminar tu cuenta?</p>
+                        <p>Perderás todos tus datos.</p>
+                    </div>
+                    <a class="Btn btnDanger" href="{{ path('app_account_delete')}}">CONFIRMAR</a>
+                </div>
             </div>
         </div>
     </div>
