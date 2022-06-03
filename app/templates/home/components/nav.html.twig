@@ -1,6 +1,6 @@
 <div class="nav animate__animated animate__fadeInDown">
     <div class="logo">
-        <img onclick="window.location.href='{{ path('app_home') }}'" src="img/pklogo.svg" alt="Ir al home">
+        <img onclick="window.location.href='{{ path('app_home') }}'" src="/img/pklogo.svg" alt="Ir al home">
     </div>
     <div class="navm">
         <ul class="nav__list">
@@ -25,9 +25,9 @@
                 <ul class="nav__list">
                     <li>
                         {% if app.user.avatar %}
-                            <img src="img/avatars/{{ app.user.avatar }}" class="avatarimg" alt="Menú de usuario">
+                            <img src="/img/avatars/{{ app.user.avatar }}" class="avatarimg" alt="Menú de usuario">
                         {% else %}
-                            <img src="img/default-avatar.svg" class="avatarimg svgAvatar" alt="Menú de usuario">
+                            <img src="/img/default-avatar.svg" class="avatarimg svgAvatar" alt="Menú de usuario">
                         {% endif %}
                         <ul>
                             <li><a href="{{ path('app_account') }}">Mi Cuenta</a></li>
@@ -76,9 +76,9 @@
                 <li><a href="{{ path('app_logout') }}">Cerrar Sesión</a></li>
                 <br><br>
                 {% if app.user.avatar %}
-                    <img src="img/avatars/{{ app.user.avatar }}" class="avatarimg" alt="Avatar de usuario">
+                    <img src="/img/avatars/{{ app.user.avatar }}" class="avatarimg" alt="Avatar de usuario">
                 {% else %}
-                    <img src="img/default-avatar.svg" class="avatarimg svgAvatar" alt="Avatar por defecto de usuario">
+                    <img src="/img/default-avatar.svg" class="avatarimg svgAvatar" alt="Avatar por defecto de usuario">
                 {% endif %}
             {% else %}
                 <li><a href="{{ path('app_login') }}">Iniciar Sesión</a></li>
