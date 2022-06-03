@@ -40,7 +40,7 @@ class AdminDashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setFaviconPath('/img/pklogo.svg')
+            ->setFaviconPath('img/pklogo.svg')
             ->renderContentMaximized()
             ->renderSidebarMinimized();
     }

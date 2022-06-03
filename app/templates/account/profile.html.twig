@@ -30,9 +30,9 @@
                 {{ form_row(settingsForm.username) }}
                 <div style="margin:auto;padding-bottom:20px;padding-top:20px;" class="avatar-wrapper" data-tippy-placement="bottom" title="Cambiar Avatar">
                     {% if user.avatar is not null %}
-                        <img class="profile-pic" src="/img/avatars/{{ user.avatar }}" alt="Avatar personalizado de usuario" />
+                        <img class="profile-pic" src="img/avatars/{{ user.avatar }}" alt="Avatar personalizado de usuario" />
                     {% else %}
-                        <img class="profile-pic" src="/img/default-avatar.svg" alt="Avatar por defecto de usuario" />
+                        <img class="profile-pic" src="img/default-avatar.svg" alt="Avatar por defecto de usuario" />
                     {% endif %}
                     <div class="upload-button"></div>
                     {{ form_widget(settingsForm.avatar, {'attr':{'class':'file-upload'}})}}
