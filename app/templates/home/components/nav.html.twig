@@ -31,7 +31,7 @@
                         {% endif %}
                         <ul>
                             <li><a href="{{ path('app_account') }}">Mi Cuenta</a></li>
-                            <li><a href="{{ path('app_home') }}">Recompensas</a></li>
+                            <li><a href="{{ path('app_rewards') }}">Recompensas</a></li>
                             {% if is_granted('ROLE_ADMIN') %}
                                 <li><a href="{{ path('admin') }}">Panel de Administración</a></li>
                             {% endif %}
@@ -49,6 +49,12 @@
         {% endif %}
     </div>
 
+    {% if app.user.avatar %}
+        <img src="/img/avatars/{{ app.user.avatar }}" style="display:none;" class="avatarimg" alt="Avatar de usuario">
+    {% else %}
+        <img src="/img/default-avatar.svg" style="display:none;" class="avatarimg svgAvatar" alt="Avatar por defecto de usuario">
+    {% endif %}
+    
     <span class="button-nav" alt="Menú" onclick="openNav()">&#9776;</span>
 </div>
 
@@ -69,17 +75,12 @@
         <ul class="nav__list-mobile">
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <li><a href="{{ path('app_account') }}">Mi Cuenta</a></li>
-                <li><a href="{{ path('app_home') }}">Recompensas</a></li>
+                <li><a href="{{ path('app_rewards') }}">Recompensas</a></li>
                 {% if is_granted('ROLE_ADMIN') %}
                     <li><a href="{{ path('admin') }}">Panel de Administración</a></li>
                 {% endif %}
                 <li><a href="{{ path('app_logout') }}">Cerrar Sesión</a></li>
                 <br><br>
-                {% if app.user.avatar %}
-                    <img src="/img/avatars/{{ app.user.avatar }}" class="avatarimg" alt="Avatar de usuario">
-                {% else %}
-                    <img src="/img/default-avatar.svg" class="avatarimg svgAvatar" alt="Avatar por defecto de usuario">
-                {% endif %}
             {% else %}
                 <li><a href="{{ path('app_login') }}">Iniciar Sesión</a></li>
                 <li><a href="{{ path('app_register') }}">Registrarse</a></li>

@@ -193,6 +193,12 @@ body {
 	background-color: #cc4608;
 	color: white;
 }
+
+.modal-header-reward {
+	padding: 2px 16px;
+	background-color: #435fdb;
+	color: white;
+}
   
 .modal-body {padding: 2px 16px;}
   
@@ -476,64 +482,63 @@ body {
 
 /*cards*/
 
-.une-quiz {
+.oneQuiz {
 	background-color: #000421;
 	color: white;
-	min-height: 100px;
 	border-radius: 20px;
 	border: 0.5px solid #fe7900;
 	margin-left: 2px;
 	width: 100%;
 	transition: 0.4s;
 	cursor: pointer;
+}
+
+#cardQuiz{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.card-body{
+	display: flex;
+	align-items: center;
   }
 
-  #offerquiz{
-	  margin-top: 10px;
-	  margin-bottom: 10px;
-  }
+.category{
+	width: 50%;
+	display: flex;
+	gap: 20px;
+}
 
-  .card-body{
-	  display: flex;
-	  align-items: center;
-  }
+.status{
+	width: 50%;
+	display: flex;
+	justify-content: flex-end;
+	gap: 30px;
+}
 
-  .category{
-	  width: 50%;
-	  display: flex;
-	  gap:65px;
-  }
-
-  .status{
-	  width: 50%;
-	  display: flex;
-	  justify-content: flex-end;
-	  gap: 100px;
-  }
-
-  #icon{
-	  padding-right: 30px;
-  }
+#icon{
+	padding-right: 30px;
+}
 
 .card-title{
 	display: flex;
 	align-items: center;
 }
  
-  .imgcard{
-	  width: 100px;
-	  height: 100px;
-	  padding: 20px;
-  }
+.imgcard{
+	width: 100px;
+	height: 100px;
+	padding: 20px;
+}
 
-.une-quiz:hover {
+.oneQuiz:hover {
 	background-color: #9201af;
 	color: white;
-  }
+}
 
-  .une-quiz:hover i {
+.oneQuiz:hover i {
 	color: white !important;
-  }
+}
 
 /*slider*/
 
@@ -850,7 +855,6 @@ body {
 }
 
 .cardView {
-	position: relative;
     display: flex;
     flex-direction: column;
     min-width: 0;
@@ -862,6 +866,7 @@ body {
 	width: 18rem;
 	color: white;
 	transition: 0.4s;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .cardView:hover {
@@ -870,10 +875,10 @@ body {
 }
 
 .cardImage {
-	background-size: cover;
+	background-size: cover!important;
 	border-radius: 5px 5px 0 0;
 	height: 15rem;
-	box-shadow: inset hsla(0, 0, 0, .2) 0 64px 64px 16px;
+	background-position: center!important;
 }
 
 .cardBody {
@@ -892,6 +897,43 @@ body {
 .content-caja{
 	display: flex;
 	gap: 50px;
+}
+
+.imgView {
+	background-color: rgb(255, 255, 255);
+	background-size: cover;
+	height: 300px;
+	width: auto;
+	background-repeat: no-repeat;
+	background-position: center;
+	border-radius: 7px;
+	width:100%;
+	vertical-align: middle;
+}
+
+.modal-backdrop {
+	width: unset!important;
+}
+
+#settings_form_username {
+	padding: 5px;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+.ea-sidebar-width-compact {
+	padding: 0px!important;
+}
+
+.rewardTitle {
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	padding-right: 30px;
+}
+
+.categoryReward {
+	width: unset!important;
 }
 
 /*responsive*/
@@ -936,7 +978,7 @@ body {
 	}
 
 	.category{
-		gap: 40px;
+		gap: 0px;
 	}
 
 	.status{
@@ -947,7 +989,7 @@ body {
 	}
 
 	#icon{
-		padding-left: 60px;
+		padding-left: 90px;
 	}
 
 	.status p{
@@ -1057,17 +1099,9 @@ body {
 		height: auto!important;
 	}
 
-}
+	.avatarimg {
+		display: flex!important;
+	}
 
-.imgView {
-	background-color: rgb(255, 255, 255);
-	background-size: cover;
-	height: 300px;
-	width: auto;
-	background-repeat: no-repeat;
-	background-position: center;
-	border-radius: 7px;
-	width:100%;
-	vertical-align: middle;
 }
 

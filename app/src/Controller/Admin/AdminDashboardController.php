@@ -12,6 +12,9 @@ use App\Entity\Characters;
 use App\Entity\Movies;
 use App\Entity\Specials;
 use App\Entity\Sagas;
+use App\Entity\Question;
+use App\Entity\Answer;
+use App\Entity\Reward;
 
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -60,6 +63,27 @@ class AdminDashboardController extends AbstractDashboardController
             ->setController(QuizCrudController::class),
 
             MenuItem::linkToCrud('Add Quiz', 'fa fa-tags', Quiz::class)
+            ->setAction('new'),
+
+            MenuItem::section('Questions'),
+            MenuItem::linkToCrud('Questions', 'fa fa-file-text', Question::class)
+            ->setController(QuestionCrudController::class),
+
+            MenuItem::linkToCrud('Add Question', 'fa fa-tags', Question::class)
+            ->setAction('new'),
+
+            MenuItem::section('Answers'),
+            MenuItem::linkToCrud('Answers', 'fa fa-file-text', Answer::class)
+            ->setController(AnswerCrudController::class),
+
+            MenuItem::linkToCrud('Add Answer', 'fa fa-tags', Answer::class)
+            ->setAction('new'),
+
+            MenuItem::section('Rewards'),
+            MenuItem::linkToCrud('Rewards', 'fa fa-file-text', Reward::class)
+            ->setController(RewardCrudController::class),
+
+            MenuItem::linkToCrud('Add Reward', 'fa fa-tags', Reward::class)
             ->setAction('new'),
 
             MenuItem::section('Manga'),
@@ -116,10 +140,7 @@ class AdminDashboardController extends AbstractDashboardController
             ->setController(CharactersCrudController::class),
 
             MenuItem::linkToCrud('Add Characters', 'fa fa-tags', Characters::class)
-            ->setAction('new'),
-
-            MenuItem::section('Access'),
-            MenuItem::linkToLogout('Logout', 'fa fa-exit')
+            ->setAction('new')
         ];
     }
 

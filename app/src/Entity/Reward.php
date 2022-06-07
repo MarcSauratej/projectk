@@ -28,6 +28,12 @@ class Reward
     #[ORM\OneToMany(mappedBy: 'reward', targetEntity: UserReward::class, orphanRemoval: true)]
     private $userRewards;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $name;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private $image;
+
     public function __construct()
     {
         $this->userRewards = new ArrayCollection();
@@ -100,6 +106,30 @@ class Reward
                 $userReward->setReward(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }

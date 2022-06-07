@@ -5,13 +5,9 @@
 {% block content %}
     <div class="containerh">
         <div class="quizes">
-            <div>
-                <div>
-                {% for quiz in quizzes %}
-                    {% include 'partials/card-global.html.twig' %}
-                {% endfor %}
-                </div>
-            </div>
+            {% for quiz in quizzes %}
+                {% include 'partials/card-global.html.twig' %}
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
