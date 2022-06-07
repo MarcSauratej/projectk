@@ -7,7 +7,7 @@
     <div class="cards">
         {% for character in characters %}
             <div onclick="window.location.href='{{ path('app_characters_view', { 'id': character.id }) }}'" class="cardView">
-                <div class="cardImage" style="background: url({{ asset('/img/views/'~ character.picture) }});background-size: cover;border-radius: 5px 5px 0 0;height: 15rem;box-shadow: inset hsla(0, 0, 0, .2) 0 64px 64px 16px;background-position: center;" aria-label="Imagen de {{ character.title }}"></div>
+                <div class="cardImage" style="background: url({{ asset('/img/views/'~ character.picture) }});" aria-label="Imagen de {{ character.title }}"></div>
                 <div class="cardBody">
                     <h5>{{ character.name }}</h5>
                 </div>

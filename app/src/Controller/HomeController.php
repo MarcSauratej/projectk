@@ -12,6 +12,7 @@ use App\Entity\Movies;
 use App\Entity\Sagas;
 use App\Entity\Specials;
 use App\Entity\Quiz;
+use App\Entity\Reward;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -243,6 +244,17 @@ class HomeController extends AbstractController {
 
         return $this->render('home/views/charactersView.html.twig', [
             'characters' => $characters
+        ]);
+    }
+
+    #[Route('/rewards', name: 'app_rewards')]
+    public function rewards(Request $request): Response {
+
+        $repository = $this->doctrine->getRepository(Reward::class);
+        $rewards = $repository->findAll();
+
+        return $this->render('home/rewards.html.twig', [
+            'rewards' => $rewards
         ]);
     }
 }
