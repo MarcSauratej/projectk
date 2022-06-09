@@ -68,16 +68,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->email;
     }
 
-    public function isRewarded($reward): bool
-    {
-        foreach($this->userQuizzes as $userQuiz){
-            if($userQuiz->getStatus() == 'completed' and $reward->getQuiz()->getId() == $userQuiz->getQuiz()->getId() ){
-                return true;
-            }
-        }
-        return false;
-    }
-    
     public function setEmail(string $email): self
     {
         $this->email = $email;
