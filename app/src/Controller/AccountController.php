@@ -15,13 +15,15 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Mailer\MailerInterface;
+use App\Entity\UserReward;
 
 class AccountController extends AbstractController {
 
-    public function __construct(EmailVerifier $emailVerifier, EntityManagerInterface $entityManager)
+    public function __construct(EmailVerifier $emailVerifier, EntityManagerInterface $entityManager, ManagerRegistry $doctrine)
     {
         $this->emailVerifier = $emailVerifier;
         $this->entityManager = $entityManager;
+        $this->doctrine = $doctrine;
     }
 
     #[Route('/profile', name: 'app_account')]
@@ -76,15 +78,15 @@ class AccountController extends AbstractController {
 
         $user = $this->getUser();
 
-        /*
-        if (!$user->isVerified()) {
-            $this->addFlash('error', 'Por favor verifica tu email.');
-        }
-        */
+        $repositoryU = $this->doctrine->getRepository(UserReward::class);
+        $userRewards = $repositoryU->findBy([
+            'user' => $user = $this->getUser(),
+        ]);
         
         return $this->render('account/profile.html.twig', [
             'settingsForm' => $form->createView(),
-            'user' => $user
+            'user' => $user,
+            'userRewards' => $userRewards
         ]);
     }
 

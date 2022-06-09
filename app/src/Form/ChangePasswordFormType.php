@@ -18,22 +18,17 @@ class ChangePasswordFormType extends AbstractType
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'first_options' => [
-                    'attr' => ['autocomplete' => 'new-password'],
+                    'attr' => ['autocomplete' => 'new-password', 'placeholder' => 'Nueva contraseña'],
                     'constraints' => [
-                        new NotBlank([
-                            'message' => 'Por favor introduce una contraseña',
-                        ]),
                         new Length([
                             'min' => 6,
                             'minMessage' => 'Tu contraseña debe tener al menos {{ limit }} caracteres',
                             'max' => 4096,
                         ]),
                     ],
-                    'label' => 'New password',
                 ],
                 'second_options' => [
-                    'attr' => ['autocomplete' => 'new-password'],
-                    'label' => 'Repetir contraseña',
+                    'attr' => ['autocomplete' => 'new-password', 'placeholder' => 'Repetir contraseña'],
                 ],
                 'invalid_message' => 'Las contraseñas tienen que coincidir.',
                 'mapped' => false,
