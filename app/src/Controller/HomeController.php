@@ -13,6 +13,7 @@ use App\Entity\Sagas;
 use App\Entity\Specials;
 use App\Entity\Quiz;
 use App\Entity\Reward;
+use App\Entity\UserQuiz;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,7 +32,7 @@ class HomeController extends AbstractController {
     }
 
     #[Route('/', name: 'app_home')]
-    public function index(Request $request): Response {
+    public function index(): Response {
 
         $repository = $this->doctrine
         ->getRepository(Quiz::class);
@@ -44,6 +45,10 @@ class HomeController extends AbstractController {
 
     #[Route('/quiz/{id}', name: 'app_quiz_view')]
     public function quizView(Quiz $quiz, Request $request, int $id): Response {
+
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_account');
+        }
 
         $repository = $this->doctrine->getRepository(Quiz::class);
         $quiz = $repository->findOneBy([
@@ -248,13 +253,25 @@ class HomeController extends AbstractController {
     }
 
     #[Route('/rewards', name: 'app_rewards')]
-    public function rewards(Request $request): Response {
+    public function rewards(): Response {
 
-        $repository = $this->doctrine->getRepository(Reward::class);
-        $rewards = $repository->findAll();
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_account');
+        }
+
+        $repositoryR = $this->doctrine->getRepository(Reward::class);
+        $rewards = $repositoryR->findAll();
+
+        $array = array();
+        foreach($rewards as $reward){
+            $array[] = array(
+                'reward' => $reward,
+                'userReward' => $this->getUser()->isRewarded($reward)
+            );
+        }
 
         return $this->render('home/rewards.html.twig', [
-            'rewards' => $rewards
+            'rewards' => $array
         ]);
     }
 }
