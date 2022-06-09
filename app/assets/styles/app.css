@@ -1008,6 +1008,7 @@ body {
 
 	#icon{
 		padding-left: 90px;
+		padding-right: 0px!important;
 	}
 
 	.status p{
