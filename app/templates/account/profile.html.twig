@@ -67,8 +67,13 @@
             </div>
 
             <div style="padding-left:20px;padding-right:20px;padding-bottom:20px;" class="container2" id="gridInContainer3">
-                <div class="rewards">
+                <div>
                     <h3>Mis Recompensas</h3>
+                    <div class="rewards">
+                        {% for userReward in userRewards %}
+                            <img class="rewardImg" src="/img/views/{{ userReward.reward.image }}" alt="{{ userReward.reward.name }}">
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>

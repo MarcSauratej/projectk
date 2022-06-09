@@ -493,9 +493,8 @@ body {
 	cursor: pointer;
 }
 
-#cardQuiz{
-	margin-top: 10px;
-	margin-bottom: 10px;
+.cardQuiz {
+	margin-top: 20px;
 }
 
 .card-body{
@@ -933,7 +932,26 @@ body {
 }
 
 .categoryReward {
-	width: unset!important;
+	width: 70%;
+}
+
+.rewards {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.rewardImg {
+	width: 140px;
+    height: auto;
+}
+
+.rewardDescription {
+	width: 80%;
+}
+
+.downloadReward {
+	width: 10%;
 }
 
 /*responsive*/
@@ -1101,6 +1119,22 @@ body {
 
 	.avatarimg {
 		display: flex!important;
+	}
+
+	.rewardTitle {
+		font-size: 12px;
+	}
+
+	.rewardDescription p {
+		font-size: 16px;
+	}
+
+	.categoryReward {
+		width: 45%;
+	}
+
+	.downloadReward {
+		width: 25%;
 	}
 
 }
