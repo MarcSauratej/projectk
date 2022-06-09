@@ -49,12 +49,10 @@
         {% endif %}
     </div>
 
-    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        {% if app.user.avatar %}
-            <img src="/img/avatars/{{ app.user.avatar }}" style="display:none;" class="avatarimg" alt="Avatar de usuario">
-        {% else %}
-            <img src="/img/default-avatar.svg" style="display:none;" class="avatarimg svgAvatar" alt="Avatar por defecto de usuario">
-        {% endif %}
+    {% if app.user.avatar %}
+        <img src="/img/avatars/{{ app.user.avatar }}" style="display:none;" class="avatarimg" alt="Avatar de usuario">
+    {% else %}
+        <img src="/img/default-avatar.svg" style="display:none;" class="avatarimg svgAvatar" alt="Avatar por defecto de usuario">
     {% endif %}
     
     <span class="button-nav" alt="Menú" onclick="openNav()">&#9776;</span>
