@@ -7,31 +7,35 @@
     <div class="containerh">
         <div class="quizes">
             {% for reward in rewards %}
-                <div id="cardQuiz">
-                    <div class="oneQuiz">
-                        <div class="card-body">
-                            <div class="category categoryReward">
-                                <h3 class="card-title rewardTitle">{{ reward.name }}</h3>
-                            </div>
-                            <div class="rewardDescription">
-                                <p>{{ reward.description }}</p>
+                {% if reward.userReward %}
+                    <div class="cardQuiz">
+                        <div class="oneQuiz">
+                            <div class="card-body" style="padding-left:10px;align-items:center;gap:10px;">
+                                <div class="category categoryReward">
+                                    <h3 class="card-title rewardTitle">{{ reward.reward.name }}</h3>
+                                </div>
+                                <div class="rewardDescription">
+                                    <p>{{ reward.reward.description }}</p>
+                                </div>
+                                <a class="downloadReward" href="/img/views/{{ reward.reward.image }}"><svg xmlns="http://www.w3.org/2000/svg" class="svgAvatar" height="48" width="48"><path d="M23.85 27.7 31.75 19.85 29.65 17.75 25.4 21.95V12H22.4V21.95L18.15 17.75L16.05 19.85ZM14 34H34V31H14ZM24 44Q19.75 44 16.1 42.475Q12.45 40.95 9.75 38.25Q7.05 35.55 5.525 31.9Q4 28.25 4 24Q4 19.8 5.525 16.15Q7.05 12.5 9.75 9.8Q12.45 7.1 16.1 5.55Q19.75 4 24 4Q28.2 4 31.85 5.55Q35.5 7.1 38.2 9.8Q40.9 12.5 42.45 16.15Q44 19.8 44 24Q44 28.25 42.45 31.9Q40.9 35.55 38.2 38.25Q35.5 40.95 31.85 42.475Q28.2 44 24 44ZM24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24ZM24 41Q31.25 41 36.125 36.125Q41 31.25 41 24Q41 16.75 36.125 11.875Q31.25 7 24 7Q16.75 7 11.875 11.875Q7 16.75 7 24Q7 31.25 11.875 36.125Q16.75 41 24 41Z"/></svg></a>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div id="myModal" class="modal">
-                    <div class="modal-content" id="#rewardModal">
-                        <div class="modal-header-reward">
-                            <span class="close">&times;</span>
-                            <h2>¡Recoge tu recompensa!</h2>
+                {% else %}
+                    <div class="cardQuiz" title="Recompensa bloqueada" style="filter:brightness(0.5);">
+                            <div class="oneQuiz" style="cursor:default;">
+                                <div class="card-body" style="padding-left:10px;align-items:center;gap:10px;">
+                                    <div class="category categoryReward">
+                                        <h3 class="card-title rewardTitle">{{ reward.reward.name }}</h3>
+                                    </div>
+                                    <div class="rewardDescription">
+                                    <p>{{ reward.reward.description }}</p>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="svgAvatar downloadReward" height="48" width="48"><path d="M23.85 27.7 31.75 19.85 29.65 17.75 25.4 21.95V12H22.4V21.95L18.15 17.75L16.05 19.85ZM14 34H34V31H14ZM24 44Q19.75 44 16.1 42.475Q12.45 40.95 9.75 38.25Q7.05 35.55 5.525 31.9Q4 28.25 4 24Q4 19.8 5.525 16.15Q7.05 12.5 9.75 9.8Q12.45 7.1 16.1 5.55Q19.75 4 24 4Q28.2 4 31.85 5.55Q35.5 7.1 38.2 9.8Q40.9 12.5 42.45 16.15Q44 19.8 44 24Q44 28.25 42.45 31.9Q40.9 35.55 38.2 38.25Q35.5 40.95 31.85 42.475Q28.2 44 24 44ZM24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24Q24 24 24 24ZM24 41Q31.25 41 36.125 36.125Q41 31.25 41 24Q41 16.75 36.125 11.875Q31.25 7 24 7Q16.75 7 11.875 11.875Q7 16.75 7 24Q7 31.25 11.875 36.125Q16.75 41 24 41Z"/></svg>
+                            </div>
                         </div>
-                        <div class="modal-body">
-                            <img src="/img/views/{{ reward.image }}" class="imgcard" alt="Imagen de {{ reward.name }}">
-                            <p>{{ reward.name }}</p>
-                        </div>
-                        <a class="Btn btnPrimary">CONFIRMAR</a>
                     </div>
-                </div>
+                {% endif %}
             {% endfor %}
         </div>
     </div>
@@ -39,23 +43,5 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script>
-        var modal = document.querySelectorAll("#myModal");
-        var btn = document.querySelectorAll("#cardQuiz");
-        var span = document.querySelectorAll(".close")[0];
 
-        btn.onclick = function() {
-            modal.style.display = "block";
-        }
-
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
 {% endblock %}
