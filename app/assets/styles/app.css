@@ -947,10 +947,6 @@ body {
 	padding-right: 10px;
 }
 
-.categoryReward {
-	width: 70%;
-}
-
 .rewards {
 	display: flex;
 	flex-wrap: wrap;
