@@ -7,10 +7,7 @@
         {{ form_start(resetForm) }}
         <fieldset>
             <h2 class="fs-title">Cambia tu Contraseña</h2>
-            {{ form_widget(resetForm.plainPassword) }}
-            <div>
-                <small>Introduce tu contraseña.</small>
-            </div>
+            <div class="divResetForm">{{ form_widget(resetForm.plainPassword) }}</div>
 
             <button aria-label="Enviar cambio de contraseña" class="Btn btnPrimary">Enviar cambio de contraseña</button>
         </fieldset>

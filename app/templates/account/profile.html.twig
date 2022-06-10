@@ -72,9 +72,13 @@
                     <div>
                         <h3>Mis Recompensas</h3>
                         <div class="rewards">
-                            {% for userReward in userRewards %}
-                                <img class="rewardImg" src="/img/views/{{ userReward.reward.image }}" alt="{{ userReward.reward.name }}">
-                            {% endfor %}
+                            {% if userRewards %}
+                                {% for userReward in userRewards %}
+                                    <img class="rewardImg" src="/img/views/{{ userReward.reward.image }}" alt="{{ userReward.reward.name }}">
+                                {% endfor %}
+                            {% else %}
+                                <p>De momento no tienes ninguna recompensa, ¡empieza a hacer quizzes para conseguirlas!</p>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

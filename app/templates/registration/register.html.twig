@@ -18,7 +18,7 @@
             {{ form_widget(registrationForm.username) }}
             {{ form_widget(registrationForm.email) }}
             {{ form_widget(registrationForm.plainPassword )}}
-            {{ form_row(registrationForm.agreeTerms) }}
+            <div class="divCheckRegister">{{ form_row(registrationForm.agreeTerms) }}</div>
 
             <button aria-label="Registrarse" type="submit" class="Btn btnPrimary">REGISTRARSE</button>
         </fieldset>

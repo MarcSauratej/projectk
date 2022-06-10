@@ -16,12 +16,14 @@ body {
 }
 
 /*register*/
+
 .registerForm {
 	width: 400px;
 	margin: 50px auto;
 	text-align: center;
 	position: relative;
 }
+
 .registerForm fieldset {
 	background: white;
 	border: 0 none;
@@ -71,18 +73,22 @@ body {
     padding-bottom: 10px;
 }
 
-.registerForm div {
+.divCheckRegister {
     padding-top: 10px;
     padding-bottom: 10px;
     display: flex;
 }
 
-.registerForm div label {
+.divCheckRegister label {
     font-size: 13px;
 }
 
-.registerForm div input {
+.divCheckRegister input {
     width: 10px;
+}
+
+.divResetForm label {
+	display: none;
 }
 
 .alert {
