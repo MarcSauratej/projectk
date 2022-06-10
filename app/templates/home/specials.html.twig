@@ -3,11 +3,13 @@
 {% block title %}Project Kakarot - Especiales/OVAs{% endblock %}
 
 {% block content %}
+
+    <h1 class="titleView">Anime: Especiales y OVAs</h1>
     
     <div class="cards">
         {% for special in specials %}
             <div onclick="window.location.href='{{ path('app_specials_view', { 'id': special.id }) }}'" class="cardView">
-                <div class="cardImage" style="background: url({{ asset('/img/views/'~ special.picture) }});" aria-label="Imagen de {{ special.title }}"></div>
+                <div class="cardImage" style="background: url({{ asset('/img/views/'~ special.picture) }});" role="img" aria-label="Imagen de {{ special.title }}"></div>
                 <div class="cardBody">
                     <h5>{{ special.name }}</h5>
                 </div>

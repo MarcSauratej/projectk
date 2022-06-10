@@ -2,7 +2,12 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no minimal-ui">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no minimal-ui">
+        <meta name="description" content="Project Kakarot es un portal en el que podrás poner a prueba tus conocimentos de la franquicia de Dragon Ball y conseguir recompensas varias.">
+        <meta name="robots" content="noindex">
+        <meta name="AdsBot-Google" content="noindex">
+        <meta name="googlebot" content="noindex">
+        <meta name="googlebot-news" content="noindex">
         <title>{% block title %}Project Kakarot{% endblock %}</title>
         <link rel="icon" href="/img/pklogo.svg" sizes="any" type="image/svg+xml">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -21,22 +26,22 @@
 
         <footer class="footer">
             <div class="titlef">
-                <span><button id="scrollButton" class="animate__animated"><svg alt="Subir arriba" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M374.6 246.6C368.4 252.9 360.2 256 352 256s-16.38-3.125-22.62-9.375L224 141.3V448c0 17.69-14.33 31.1-31.1 31.1S160 465.7 160 448V141.3L54.63 246.6c-12.5 12.5-32.75 12.5-45.25 0s-12.5-32.75 0-45.25l160-160c12.5-12.5 32.75-12.5 45.25 0l160 160C387.1 213.9 387.1 234.1 374.6 246.6z"/></svg></button></span>
+                <span><button aria-label="Subir arriba" id="scrollButton" class="animate__animated"><svg alt="Subir arriba" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M374.6 246.6C368.4 252.9 360.2 256 352 256s-16.38-3.125-22.62-9.375L224 141.3V448c0 17.69-14.33 31.1-31.1 31.1S160 465.7 160 448V141.3L54.63 246.6c-12.5 12.5-32.75 12.5-45.25 0s-12.5-32.75 0-45.25l160-160c12.5-12.5 32.75-12.5 45.25 0l160 160C387.1 213.9 387.1 234.1 374.6 246.6z"/></svg></button></span>
             </div>
             <div class="containerf">
                 <div class="contentf">
                     <div class="desc">
                         <h3>Project Kakarot</h3>
                         <hr>
-                        <p>Project Kakarot es un portal en el que podrás poner a prueba tus conocimentos de la franquicia de Dragon Ball y conseguir recompensas varias.</p>
+                        <p>Project Kakarot es un portal en el que podrás poner a prueba tus conocimentos de la franquicia de Dragon Ball haciendo una serie de quizzes y podrás conseguir recompensas varias.</p>
                     </div>
                 <div class="link">
                     <h3>Links Útiles</h3>
                     <hr>
-                    <button onclick="window.location.href='{{ path('app_account') }}'">Mi Cuenta</button>
-                    <button onclick="window.location.href='{{ path('app_rewards') }}'">Recompensas</button>
-                    <button onclick="window.location.href='{{ path('app_manga') }}'">Manga</button>
-                    <button onclick="window.location.href='{{ path('app_anime') }}'">Anime</button>
+                    <button class="linkButton" aria-label="Mi cuenta" onclick="window.location.href='{{ path('app_account') }}'">Mi Cuenta</button>
+                    <button class="linkButton" aria-label="Recompensas" onclick="window.location.href='{{ path('app_rewards') }}'">Recompensas</button>
+                    <button class="linkButton" aria-label="Manga" onclick="window.location.href='{{ path('app_manga') }}'">Manga</button>
+                    <button class="linkButton" aria-label="Anime" onclick="window.location.href='{{ path('app_anime') }}'">Anime</button>
                 </div>
             </div>
             <div class="copyf">

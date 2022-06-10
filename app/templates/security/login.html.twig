@@ -17,8 +17,8 @@
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"><br><br>
                 <label style="display:flex;align-items:flex-start;">Recuérdame<input style="width:auto;margin-left:10px;" type="checkbox" name="remember_me"></label><br>
             </form>
-            <button form="login-form" class="Btn btnPrimary" type="submit">INICIAR SESIÓN</button><br><br>
-            <a href="{{ path('app_forgot_password_request') }}" style="text-decoration:none;color:#435fdb;">¿Has olvidado la contraseña?</a><br><br>
+            <button aria-label="Iniciar sesión" form="login-form" class="Btn btnPrimary" type="submit">INICIAR SESIÓN</button><br><br>
+            <button aria-label="¿Has olvidado tu contraseña?" onclick="window.location.href='{{ path('app_forgot_password_request') }}'" class="linkButton" style="margin:auto;color:#435fdb;display:flex;justify-content:center;font-weight:normal;line-height:unset;padding:unset;">¿Has olvidado la contraseña?</button><br>
             <span>¿No tienes cuenta? <a style="text-decoration:none;color:#435fdb;" href="{{path('app_register')}}">¡Regístrate!</a></span>
         </fieldset>
     </div>
