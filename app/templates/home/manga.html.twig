@@ -11,7 +11,7 @@
             <div onclick="window.location.href='{{ path('app_manga_view', { 'id': manga.id }) }}'" class="cardView">
                 <div class="cardImage" style="background: url({{ asset('/img/views/'~ manga.picture) }});" role="img" aria-label="Imagen de {{ manga.title }}"></div>
                 <div class="cardBody">
-                    <h5>{{ manga.name }}</h5>
+                    <h4>{{ manga.name }}</h4>
                 </div>
             </div>
         {% endfor %}

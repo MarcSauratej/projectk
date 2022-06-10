@@ -48,42 +48,45 @@
                 <p>© 2022 Todos los derechos reservados - Project Kakarot</p>
             </div>
         </footer>
-  {% endblock %}
+        
+    {% endblock %}
+
     </body>
 
 {% block javascripts %}
 
-<script>
+    <script>
 
-    var btn = document.getElementById("scrollButton");
+        var btn = document.getElementById("scrollButton");
 
-    btn.addEventListener("click", () => {
-        var count = 0;
+        btn.addEventListener("click", () => {
+            var count = 0;
 
-        var x = setInterval(function() {
-            'use strict';
+            var x = setInterval(function() {
+                'use strict';
 
-            window.scrollTo(0,scrollY-count);
+                window.scrollTo(0,scrollY-count);
 
-            count++
+                count++
 
-            if (scrollY == 0) {
-                clearInterval(x)
-            }
+                if (scrollY == 0) {
+                    clearInterval(x)
+                }
 
-        }, 20);
+            }, 20);
 
-    });
+        });
 
-    function openNav() {
-  document.getElementById("myNav-mobile").style.width = "100%";
-}
+        function openNav() {
+            document.getElementById("myNav-mobile").style.width = "100%";
+        }
 
-function closeNav() {
-  document.getElementById("myNav-mobile").style.width = "0%";
-}
+        function closeNav() {
+            document.getElementById("myNav-mobile").style.width = "0%";
+        }
 
-</script>
+    </script>
 
 {% endblock %}
+
 </html>

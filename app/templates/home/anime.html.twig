@@ -11,7 +11,7 @@
             <div onclick="window.location.href='{{ path('app_anime_view', { 'id': anime.id }) }}'" class="cardView">
                 <div class="cardImage" style="background: url({{ asset('/img/views/'~ anime.picture) }});" role="img" aria-label="Imagen de {{ anime.title }}"></div>
                 <div class="cardBody">
-                    <h5>{{ anime.name }}</h5>
+                    <h4>{{ anime.name }}</h4>
                 </div>
             </div>
         {% endfor %}
