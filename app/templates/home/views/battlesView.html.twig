@@ -1,12 +1,15 @@
 {% extends 'home/components/layout.html.twig' %}
 
-{% block title %}Project Kakarot - Batallas{% endblock %}
+{% block title %}Project Kakarot - {{ battles.title }}{% endblock %}
 
 {% block content %}
+
+    <h1 class="titleView">{{ battles.saga }}: Batalla de {{ battles.name }}</h1>
+
     <div class="caja">
         <div class="containerm1">
             <div class="container1">
-                <img class="imgView" style="background-image: url(/img/views/{{ battles.picture }});" aria-label="Imagen de {{ battles.title }}">
+                <img class="imgView" style="background-image: url(/img/views/{{ battles.picture }});" role="img" aria-label="Imagen de {{ battles.title }}">
 
                 <!-- <div class="slideshow-container">
                     <div class="mySlides fade">
@@ -68,12 +71,11 @@
         </div>
         <div class="containerm2">
             <div class="titlePages">
-                <h2>{{ battles.title }}</h2>
+                <h2>{{ battles.name }}</h2>
             </div>
             <br><br>
             <div class="description">
                 <p>{{ battles.description }}</p>
-                <br>
             </div>
         </div>
     </div>

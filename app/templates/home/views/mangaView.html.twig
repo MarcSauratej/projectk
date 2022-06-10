@@ -1,12 +1,15 @@
 {% extends 'home/components/layout.html.twig' %}
 
-{% block title %}Project Kakarot - Mangas{% endblock %}
+{% block title %}Project Kakarot - {{ mangas.title }}{% endblock %}
 
 {% block content %}
+
+    <h1 class="titleView">Manga: {{ mangas.name }}</h1>
+
     <div class="caja">
         <div class="containerm1">
             <div class="container1">
-                <img class="imgView" style="background-image: url(/img/views/{{ mangas.picture }});" aria-label="Imagen de {{ mangas.title }}">
+                <img class="imgView" style="background-image: url(/img/views/{{ mangas.picture }});" role="img" aria-label="Imagen de {{ mangas.title }}">
 
                 <!-- <div class="slideshow-container">
                     <div class="mySlides fade">
@@ -73,12 +76,11 @@
         </div>
         <div class="containerm2">
             <div class="titlePages">
-                <h2>{{ mangas.title }}</h2>
+                <h2>{{ mangas.name }}</h2>
             </div>
             <br><br>
             <div class="description">
                 <p>{{ mangas.description }}</p>
-                <br>
             </div>
         </div>
     </div>
