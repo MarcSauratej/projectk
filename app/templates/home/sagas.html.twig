@@ -11,7 +11,7 @@
             <div onclick="window.location.href='{{ path('app_sagas_view', { 'id': saga.id }) }}'" class="cardView">
                 <div class="cardImage" style="background: url({{ asset('/img/views/'~ saga.picture) }});" role="img" aria-label="Imagen de {{ saga.title }}"></div>
                 <div class="cardBody">
-                    <h5>{{ saga.name }}</h5>
+                    <h4>{{ saga.name }}</h4>
                 </div>
             </div>
         {% endfor %}

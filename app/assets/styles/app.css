@@ -938,7 +938,7 @@ body {
 	display: flex;
 	align-items: center;
 	padding: 10px;
-	padding-right: 30px;
+	padding-right: 10px;
 }
 
 .categoryReward {
@@ -1145,11 +1145,11 @@ body {
 	}
 
 	.rewardTitle {
-		font-size: 12px;
+		font-size: 14px;
 	}
 
 	.rewardDescription p {
-		font-size: 16px;
+		font-size: 12px;
 	}
 
 	.categoryReward {
@@ -1157,7 +1157,7 @@ body {
 	}
 
 	.downloadReward {
-		width: 25%;
+		width: 30%;
 	}
 
 	.titleView {
