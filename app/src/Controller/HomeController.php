@@ -48,6 +48,10 @@ class HomeController extends AbstractController {
 
         if (!$this->getUser()) {
             return $this->redirectToRoute('app_account');
+        } else if (!$this->getUser()->isVerified()) {
+            $this->addFlash('danger', 'Por favor, verifica tu cuenta.');
+
+            return $this->redirectToRoute('app_account');
         }
 
         $repository = $this->doctrine->getRepository(Quiz::class);

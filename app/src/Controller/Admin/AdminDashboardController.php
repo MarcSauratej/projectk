@@ -55,9 +55,6 @@ class AdminDashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Users', 'fa fa-user', User::class)
             ->setController(UserCrudController::class),
 
-            MenuItem::linkToCrud('Add User', 'fa fa-tags', User::class)
-            ->setAction('new'),
-
             MenuItem::section('Quizzes'),
             MenuItem::linkToCrud('Quizzes', 'fa fa-file-text', Quiz::class)
             ->setController(QuizCrudController::class),
