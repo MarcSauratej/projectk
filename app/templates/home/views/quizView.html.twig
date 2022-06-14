@@ -1,0 +1,21 @@
+{% extends 'home/components/layout.html.twig' %}
+
+{% block title %}Project Kakarot - Quiz de {{ quiz.name }}{% endblock %}
+
+{% block content %}
+
+    <h1 class="titleView">Quiz de {{ quiz.name }}</h1>
+
+    <div class="quizContainer">
+        {% for questions in quiz.questions %}
+            <h3>{{ questions.question }}</h3>
+                {% for answers in questions.answers %}
+                    <div class="answers">
+                        <label for="{{ answers.answer }}"><input value="{{ answers.id }}" name={{ questions.id }} id="{{ answers.answer }}" type="radio">{{ answers.answer }}</label>
+                    </div>
+                {% endfor %}
+        {% endfor %}
+        <button style="margin-top:30px!important;display:flex;margin:auto;" class="Btn btnPrimary">ENVIAR RESPUESTAS</button>
+    </div>
+
+{% endblock %}

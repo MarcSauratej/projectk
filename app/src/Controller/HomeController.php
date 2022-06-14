@@ -54,13 +54,15 @@ class HomeController extends AbstractController {
             return $this->redirectToRoute('app_account');
         }
 
+
+
         $repository = $this->doctrine->getRepository(Quiz::class);
         $quiz = $repository->findOneBy([
             'id' => $id
         ]);
 
-        return $this->render('home/viewQuiz.html.twig', [
-            'quizzes' => $quiz
+        return $this->render('home/views/quizView.html.twig', [
+            'quiz' => $quiz
         ]);
     }
 
