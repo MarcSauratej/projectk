@@ -102,7 +102,7 @@ class AccountController extends AbstractController {
             (new TemplatedEmail())
                 ->from(new Address('mailer@kakarot.squaremx.com', 'Project Kakarot'))
                 ->to($user->getEmail())
-                ->subject('Please Confirm your Email')
+                ->subject('Por favor, confirma tu Email.')
                 ->htmlTemplate('registration/confirmation_email.html.twig')
         );
 
