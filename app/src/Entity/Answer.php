@@ -62,12 +62,12 @@ class Answer
         return $this;
     }
 
-    public function isIscorrect(): ?bool
+    public function isCorrect(): ?bool
     {
         return $this->iscorrect;
     }
 
-    public function setIscorrect(bool $iscorrect): self
+    public function setIsCorrect(bool $iscorrect): self
     {
         $this->iscorrect = $iscorrect;
 

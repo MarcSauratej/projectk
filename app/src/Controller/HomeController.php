@@ -14,6 +14,7 @@ use App\Entity\Specials;
 use App\Entity\Quiz;
 use App\Entity\Reward;
 use App\Entity\UserQuiz;
+use App\Entity\UserReward;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,7 +26,6 @@ use Doctrine\Persistence\ManagerRegistry;
 class HomeController extends AbstractController {
 
     public function __construct(EntityManagerInterface $entityManager, ManagerRegistry $doctrine)
-
     {
         $this->entityManager = $entityManager;
         $this->doctrine = $doctrine;
@@ -34,8 +34,7 @@ class HomeController extends AbstractController {
     #[Route('/', name: 'app_home')]
     public function index(): Response {
 
-        $repository = $this->doctrine
-        ->getRepository(Quiz::class);
+        $repository = $this->doctrine->getRepository(Quiz::class);
         $quizzes = $repository->findAll();
 
         return $this->render('home/home.html.twig', [
@@ -54,14 +53,50 @@ class HomeController extends AbstractController {
             return $this->redirectToRoute('app_account');
         }
 
-
-
         $repository = $this->doctrine->getRepository(Quiz::class);
         $quiz = $repository->findOneBy([
             'id' => $id
         ]);
 
         return $this->render('home/views/quizView.html.twig', [
+            'quiz' => $quiz
+        ]);
+    }
+
+    #[Route('/quizResponse/{id}', name: 'app_quizResponse')]
+    public function quizResponse(Quiz $quiz, Request $request, int $id, ManagerRegistry $doctrine): Response {
+
+        $repository = $this->doctrine->getRepository(Quiz::class);
+        $quiz = $repository->findOneBy([
+            'id' => $id
+        ]);
+
+        $repositoryReward = $this->doctrine->getRepository(Reward::class);
+        $reward = $repositoryReward->findOneBy([
+            'id' => $id
+        ]);
+
+        $user = $this->getUser();
+        $date = new \DateTime();
+
+        $userReward = new UserReward();
+        $userReward->setReward($reward);
+        $userReward->setUser($user);
+        $userReward->setAcquired(true);
+
+        $userQuiz = new UserQuiz();
+        $userQuiz->setUser($user);
+        $userQuiz->setQuiz($quiz);
+        $userQuiz->setCreatedAt($date);
+        $userQuiz->setUpdatedAt($date);
+        $userQuiz->setStatus("completed");
+
+        $this->entityManager = $doctrine->getManager();
+        $this->entityManager->persist($userReward);
+        $this->entityManager->persist($userQuiz);
+        $this->entityManager->flush();
+
+        return $this->render('home/views/quizResponse.html.twig', [
             'quiz' => $quiz
         ]);
     }

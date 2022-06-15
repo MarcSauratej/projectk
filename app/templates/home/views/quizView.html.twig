@@ -15,7 +15,7 @@
                     </div>
                 {% endfor %}
         {% endfor %}
-        <button style="margin-top:30px!important;display:flex;margin:auto;" class="Btn btnPrimary">ENVIAR RESPUESTAS</button>
+        <button style="margin-top:30px!important;display:flex;margin:auto;" onclick="window.location.href='{{ path('app_quizResponse', { 'id': quiz.id }) }}'" class="Btn btnPrimary">ENVIAR RESPUESTAS</button>
     </div>
 
 {% endblock %}
