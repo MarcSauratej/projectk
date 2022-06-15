@@ -66,6 +66,14 @@ class HomeController extends AbstractController {
     #[Route('/quizResponse/{id}', name: 'app_quizResponse')]
     public function quizResponse(Quiz $quiz, Request $request, int $id, ManagerRegistry $doctrine): Response {
 
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_account');
+        } else if (!$this->getUser()->isVerified()) {
+            $this->addFlash('danger', 'Por favor, verifica tu cuenta.');
+
+            return $this->redirectToRoute('app_account');
+        }
+
         $repository = $this->doctrine->getRepository(Quiz::class);
         $quiz = $repository->findOneBy([
             'id' => $id
