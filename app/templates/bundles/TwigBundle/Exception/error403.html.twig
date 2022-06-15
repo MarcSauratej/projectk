@@ -1,0 +1,12 @@
+{% extends 'home/components/layout.html.twig' %}
+
+{% block title %}Project Kakarot - Error 403{% endblock %}
+
+{% block content %}
+
+    <div style="margin-top:50px;margin-bottom:360px;display:block;" class="caja">
+        <h1>Ni tienes acceso a esta página</h1>
+        <p>La página solicitada no ha podido ser accedida. Revise que la URL esté bien escrita o vuelva al <a style="color:white;" href="{{ path('app_home') }}">home</a>.</p>
+    </div>
+
+{% endblock %}
