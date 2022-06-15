@@ -1,0 +1,13 @@
+{% extends 'home/components/layout.html.twig' %}
+
+{% block title %}Project Kakarot - Quiz de {{ quiz.name }}{% endblock %}
+
+{% block content %}
+
+    <div style="margin-top:50px!important;margin-bottom:200px;" class="quizContainer">
+        <h2>¡Enhorabuena, has completado el Quiz de {{ quiz.name }}!</h2>
+        <p>Reclama tu recompensa haciendo clic en el siguiente botón:</p>
+        <button style="margin-top:30px!important;display:flex;margin:auto;" onclick="window.location.href='{{ path('app_rewards') }}'" class="Btn btnPrimary">IR A RECOMPENSAS</button>
+    </div>
+
+{% endblock %}
